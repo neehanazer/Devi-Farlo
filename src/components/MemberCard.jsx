@@ -183,7 +183,7 @@ export default function MemberCard({ member, onSelect, index }) {
           <strong style={{ color: isDark ? '#D8C8B8' : '#363D39' }}>{member.strength}</strong>
         </div>
 
-        {/* Button to open profile dossier */}
+        {/* Button to open profile modal */}
         <button
           onClick={() => onSelect(member)}
           style={{
@@ -211,7 +211,7 @@ export default function MemberCard({ member, onSelect, index }) {
           }}
         >
           <Eye size={15} />
-          <span>View Full Dossier</span>
+          <span>View Full Profile</span>
         </button>
       </div>
 

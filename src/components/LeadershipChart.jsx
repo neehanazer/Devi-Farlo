@@ -138,7 +138,7 @@ export default function LeadershipChart({ onSelectMember }) {
                 transition: 'all 0.2s',
               }}
             >
-              <span>View Captain's Dossier</span>
+              <span>View Captain's Profile</span>
               <ArrowRight size={16} />
             </button>
           </motion.div>
@@ -255,7 +255,7 @@ export default function LeadershipChart({ onSelectMember }) {
                 transition: 'all 0.2s',
               }}
             >
-              <span>View Vice-Captain's Dossier</span>
+              <span>View Vice-Captain's Profile</span>
               <ArrowRight size={16} />
             </button>
           </motion.div>

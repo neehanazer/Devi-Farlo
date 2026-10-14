@@ -107,7 +107,7 @@ export default function ProfileModal({
               border: isDark ? '1px solid rgba(216, 200, 184, 0.3)' : '1px solid rgba(54, 61, 57, 0.25)',
             }}
           >
-            <span>OFFICIAL DOSSIER • {member.id}</span>
+            <span>OFFICIAL PROFILE • {member.id}</span>
           </div>
         </div>
 
@@ -311,7 +311,7 @@ export default function ProfileModal({
             </button>
 
             <span style={{ fontSize: '0.75rem', color: isDark ? '#C0B5AA' : '#4E5651', fontWeight: 700, textAlign: 'center' }}>
-              DEVI FARLO DOSSIER
+              DEVI FARLO PROFILE
             </span>
 
             <button

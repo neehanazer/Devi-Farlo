@@ -74,7 +74,7 @@ function MainApp() {
         {/* 15. Minimal & Sophisticated Footer */}
         <Footer />
 
-        {/* Interactive Member Profile Dossier Modal */}
+        {/* Interactive Member Profile Modal */}
         <ProfileModal
           member={selectedMember}
           visible={Boolean(selectedMember)}

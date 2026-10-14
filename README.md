@@ -9,7 +9,7 @@ DEVI FARLO is an interactive, responsive team showcase web application built wit
 ## 🚀 Key Features
 - **Hero Showcase**: High-impact visual landing with team cover imagery and core anthem.
 - **Team Statistics**: Progressive animated counters representing team cohesion and vision.
-- **Meet Our Team**: 8-member roster with category filtering, live search, superpowers, and detailed dossier modals.
+- **Meet Our Team**: 8-member roster with category filtering, live search, superpowers, and detailed profile modals.
 - **Digital ID Passes**: Interactive 3D flip operative passes with security credentials.
 - **Leadership Anthem**: Words of encouragement from team leadership with editable storage.
 - **Warm Cashmere Aesthetic**: Tailored design palette featuring `#D8C8B8` (RGB: 216, 200, 184) and `#363D39`.
