@@ -3,6 +3,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight, Users, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
+const InstagramIcon = ({ size = 18, color = 'currentColor' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -165,6 +182,33 @@ export default function Navbar() {
                 </>
               )}
             </button>
+
+            {/* Instagram Link */}
+            <a
+              href="https://instagram.com/devi_farloo?utm_source=qr&psln=MXc4aGlqaW05Mno4dg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+                border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.2)',
+                borderRadius: '9999px',
+                padding: '0.4rem 0.85rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                color: isDark ? '#D8C8B8' : '#363D39',
+                textDecoration: 'none',
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                transition: 'all 0.2s ease',
+              }}
+              title="Follow DEVI FARLO on Instagram @devi_farloo"
+              aria-label="Instagram Profile"
+              className="nav-instagram-btn"
+            >
+              <InstagramIcon size={14} color={isDark ? '#D8C8B8' : '#363D39'} />
+              <span>@devi_farloo</span>
+            </a>
           </nav>
 
           {/* Mobile Right Controls: Theme Toggle & Menu Toggle */}
@@ -370,6 +414,32 @@ export default function Navbar() {
                 <Users size={18} />
                 <span>Meet All 8 Members</span>
               </button>
+
+              <a
+                href="https://instagram.com/devi_farloo?utm_source=qr&psln=MXc4aGlqaW05Mno4dg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: '100%',
+                  marginTop: '0.75rem',
+                  padding: '0.85rem',
+                  borderRadius: '0.75rem',
+                  background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+                  border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.2)',
+                  color: isDark ? '#F6F1EC' : '#222724',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: '0.9rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  boxSizing: 'border-box',
+                }}
+              >
+                <InstagramIcon size={17} color={isDark ? '#D8C8B8' : '#363D39'} />
+                <span>Follow @devi_farloo</span>
+              </a>
             </div>
           </motion.div>
         )}

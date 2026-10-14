@@ -2,6 +2,23 @@ import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
+const InstagramIcon = ({ size = 20, color = 'currentColor' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
 export default function Footer() {
   const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
@@ -89,7 +106,7 @@ export default function Footer() {
               fontSize: '0.95rem',
               color: isDark ? '#C0B5AA' : '#4E5651',
               lineHeight: 1.6,
-              marginBottom: '2rem',
+              marginBottom: '1.25rem',
               maxWidth: '520px',
               padding: '0 0.5rem',
               fontWeight: 500,
@@ -97,6 +114,33 @@ export default function Footer() {
           >
             "Different individuals. One team. Endless possibilities."
           </p>
+
+          {/* Instagram Connect Banner */}
+          <a
+            href="https://instagram.com/devi_farloo?utm_source=qr&psln=MXc4aGlqaW05Mno4dg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              padding: '0.65rem 1.4rem',
+              borderRadius: '9999px',
+              background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+              border: isDark ? '1px solid rgba(216, 200, 184, 0.3)' : '1px solid rgba(54, 61, 57, 0.25)',
+              color: isDark ? '#F6F1EC' : '#222724',
+              textDecoration: 'none',
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              marginBottom: '2rem',
+              transition: 'all 0.25s ease',
+              boxShadow: isDark ? '0 4px 15px rgba(0, 0, 0, 0.25)' : '0 4px 15px rgba(54, 61, 57, 0.08)',
+            }}
+            className="footer-insta-btn"
+          >
+            <InstagramIcon size={19} color={isDark ? '#D8C8B8' : '#363D39'} />
+            <span>Connect on Instagram <strong style={{ color: isDark ? '#D8C8B8' : '#363D39', marginLeft: '0.2rem' }}>@devi_farloo</strong></span>
+          </a>
 
           {/* Navigation Links */}
           <nav className="footer-nav" style={{ borderBottomColor: isDark ? 'rgba(216, 200, 184, 0.15)' : 'rgba(54, 61, 57, 0.15)' }}>
