@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, Users, CreditCard } from 'lucide-react';
+import { ArrowDown, Sparkles, CreditCard } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Hero() {
@@ -45,18 +45,15 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Background Image Composition with Theme Overlays */}
+      {/* Background Ambient Composition with Theme Gradients */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: isDark
-            ? `linear-gradient(to bottom, rgba(54,61,57,0.72) 0%, rgba(54,61,57,0.88) 65%, #363D39 100%), url('/images/team-cover.jpg')`
-            : `linear-gradient(to bottom, rgba(216, 200, 184, 0.75) 0%, rgba(216, 200, 184, 0.92) 65%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 40%',
-          filter: 'contrast(1.03)',
+          background: isDark
+            ? 'radial-gradient(ellipse at 50% 20%, #363D39 0%, #292E2B 60%, #1E2320 100%)'
+            : 'radial-gradient(ellipse at 50% 20%, #E6DBD0 0%, #D8C8B8 60%, #CBBAB0 100%)',
           transition: 'all 0.3s ease',
         }}
       />
@@ -241,60 +238,6 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          {/* Featured Official Cover Photo Frame - All 7 faces prominently visible */}
-          <motion.div
-            variants={itemVariants}
-            style={{
-              position: 'relative',
-              maxWidth: '840px',
-              margin: '0 auto 2.5rem auto',
-              borderRadius: '1.5rem',
-              overflow: 'hidden',
-              boxShadow: isDark
-                ? '0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 35px rgba(216, 200, 184, 0.15)'
-                : '0 20px 50px -10px rgba(54, 61, 57, 0.25), 0 0 35px rgba(54, 61, 57, 0.1)',
-              border: isDark ? '2px solid rgba(216, 200, 184, 0.25)' : '2px solid rgba(54, 61, 57, 0.22)',
-              backgroundColor: isDark ? '#2B312E' : '#C5B5A5',
-            }}
-          >
-            {/* Top Badge */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '0.85rem',
-                left: '0.85rem',
-                zIndex: 2,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: '0.35rem 0.85rem',
-                borderRadius: '9999px',
-                background: isDark ? 'rgba(34, 39, 36, 0.88)' : 'rgba(54, 61, 57, 0.88)',
-                backdropFilter: 'blur(8px)',
-                color: '#D8C8B8',
-                fontSize: '0.72rem',
-                fontWeight: 800,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
-              }}
-            >
-              <Users size={13} color="#D8C8B8" />
-              <span>OFFICIAL TEAM COVER • 7 MEMBERS</span>
-            </div>
-
-            <img
-              src="/images/team-cover.jpg"
-              alt="DEVI FARLO Official Team Photo with all 7 members"
-              style={{
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
-              }}
-            />
-          </motion.div>
-
           {/* Scroll Down Indicator */}
           <motion.div
             variants={itemVariants}
@@ -308,7 +251,7 @@ export default function Hero() {
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               cursor: 'pointer',
-              padding: '0.5rem',
+              padding: '1.5rem 0.5rem 0.5rem 0.5rem',
               fontWeight: 600,
             }}
             onClick={() => scrollTo('#stats')}

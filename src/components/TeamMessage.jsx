@@ -25,12 +25,10 @@ export default function TeamMessage() {
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: isDark
-            ? `linear-gradient(to bottom, rgba(54,61,57,0.92) 0%, rgba(42,48,45,0.96) 50%, #363D39 100%), url('/images/team-cover.jpg')`
-            : `linear-gradient(to bottom, rgba(216,200,184,0.85) 0%, rgba(227,217,206,0.92) 50%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 45%',
-          filter: 'contrast(1.05)',
+          background: isDark
+            ? 'radial-gradient(ellipse at 50% 30%, #363D39 0%, #2A302D 60%, #222724 100%)'
+            : 'radial-gradient(ellipse at 50% 30%, #E3D7CA 0%, #D8C8B8 60%, #CBBAB0 100%)',
+          transition: 'all 0.3s ease',
         }}
       />
 
