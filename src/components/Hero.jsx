@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Users, Heart, Sparkles } from 'lucide-react';
+import { ArrowDown, Users, Heart } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Hero() {
@@ -36,39 +36,6 @@ export default function Hero() {
       />
 
       <div className="container-custom" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
-        {/* TOP SHOWCASE BADGE */}
-        <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.4rem 1.15rem',
-              borderRadius: '9999px',
-              background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
-              border: isDark ? '1px solid rgba(216, 200, 184, 0.3)' : '1px solid rgba(54, 61, 57, 0.2)',
-              color: isDark ? '#D8C8B8' : '#363D39',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-            }}
-          >
-            <Sparkles size={14} />
-            <span>THE OFFICIAL TEAM SHOWCASE</span>
-            <span
-              style={{
-                display: 'inline-block',
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                backgroundColor: '#4ade80',
-                boxShadow: '0 0 8px #4ade80',
-                marginLeft: '0.2rem',
-              }}
-            />
-          </div>
-        </div>
 
         {/* TEAM IDENTITY & DETAILS */}
         <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto' }}>
