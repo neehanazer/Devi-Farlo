@@ -70,40 +70,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 1. THE OFFICIAL COVER PHOTO - 100% UNTOUCHED, UNCROPPED & FULLY VISIBLE */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: '1120px',
-            margin: '0 auto 2rem auto',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            boxShadow: isDark
-              ? '0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(216, 200, 184, 0.22)'
-              : '0 25px 60px -15px rgba(54, 61, 57, 0.22), 0 0 0 1px rgba(54, 61, 57, 0.18)',
-            background: isDark ? '#1F2421' : '#DDD2C5',
-          }}
-        >
-          {/* Zero overlays, zero cropping - every face is 100% sharp and visible */}
-          <img
-            src="/images/hero-cover.jpg"
-            alt="DEVI FARLO Official Team Cover"
-            style={{
-              width: '100%',
-              height: 'auto',
-              maxHeight: 'none',
-              objectFit: 'contain',
-              display: 'block',
-              margin: '0 auto',
-            }}
-          />
-        </motion.div>
-
-        {/* 2. TEAM IDENTITY & DETAILS - Cleanly placed BELOW the cover photo so NO faces are ever covered */}
+        {/* TEAM IDENTITY & DETAILS */}
         <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto' }}>
           {/* Official Logo */}
           <motion.div
