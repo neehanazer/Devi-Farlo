@@ -100,7 +100,7 @@ export default function Navbar() {
                 DEVI FARLO
               </div>
               <div style={{ fontSize: '0.62rem', color: isDark ? '#D8C8B8' : '#363D39', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700 }}>
-                You Can Do It
+                You Have To Do It
               </div>
             </div>
           </a>
@@ -279,7 +279,7 @@ export default function Navbar() {
                   </div>
                   <div>
                     <div style={{ fontWeight: 800, color: isDark ? '#F6F1EC' : '#222724', fontSize: '1rem' }}>DEVI FARLO</div>
-                    <div style={{ fontSize: '0.65rem', color: isDark ? '#D8C8B8' : '#363D39', fontWeight: 600 }}>"You can do it."</div>
+                    <div style={{ fontSize: '0.65rem', color: isDark ? '#D8C8B8' : '#363D39', fontWeight: 600 }}>"You have to do it."</div>
                   </div>
                 </div>
 

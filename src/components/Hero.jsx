@@ -58,6 +58,22 @@ export default function Hero() {
         }}
       />
 
+      {/* Ambient Blurred Background Layer from Cover Photo */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: "url('/images/hero-cover.jpg')",
+          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          filter: 'blur(45px)',
+          opacity: isDark ? 0.18 : 0.12,
+          transform: 'scale(1.1)',
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Atmospheric ambient glows */}
       <div
         className="ambient-glow"
@@ -153,7 +169,7 @@ export default function Hero() {
                 textTransform: 'uppercase',
               }}
             >
-              "YOU CAN DO IT."
+              "YOU HAVE TO DO IT."
             </span>
           </motion.div>
 
@@ -184,7 +200,7 @@ export default function Hero() {
               gap: '0.85rem',
               justifyContent: 'center',
               alignItems: 'center',
-              marginBottom: '2.5rem',
+              marginBottom: '2rem',
             }}
           >
             <button
@@ -238,6 +254,149 @@ export default function Hero() {
             </button>
           </motion.div>
 
+          {/* Hero Panoramic Cover Photo Showcase - Unobstructed and Fully Visible */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '1060px',
+              margin: '0.75rem auto 2.5rem auto',
+            }}
+          >
+            {/* Ambient backlight glow */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-12px',
+                borderRadius: '28px',
+                background: isDark
+                  ? 'radial-gradient(ellipse at center, rgba(216, 200, 184, 0.22) 0%, rgba(38, 44, 41, 0.1) 70%, transparent 100%)'
+                  : 'radial-gradient(ellipse at center, rgba(54, 61, 57, 0.16) 0%, rgba(216, 200, 184, 0.24) 70%, transparent 100%)',
+                filter: 'blur(25px)',
+                zIndex: 0,
+                pointerEvents: 'none',
+              }}
+            />
+
+            {/* Frame container */}
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: isDark
+                  ? '0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(216, 200, 184, 0.22)'
+                  : '0 25px 60px -15px rgba(54, 61, 57, 0.22), 0 0 0 1px rgba(54, 61, 57, 0.18)',
+                background: isDark ? '#262B28' : '#ECE3D8',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Top Meta Bar - Cleanly positioned above the photo */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.85rem 1.4rem',
+                  background: isDark ? 'rgba(34, 39, 36, 0.95)' : 'rgba(235, 226, 217, 0.95)',
+                  borderBottom: isDark ? '1px solid rgba(216, 200, 184, 0.18)' : '1px solid rgba(54, 61, 57, 0.15)',
+                  flexWrap: 'wrap',
+                  gap: '0.6rem',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      backgroundColor: '#4ade80',
+                      boxShadow: '0 0 10px #4ade80',
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      fontWeight: 800,
+                      color: isDark ? '#D8C8B8' : '#363D39',
+                    }}
+                  >
+                    Official Team Cover • DEVI FARLO
+                  </span>
+                </div>
+
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    padding: '0.3rem 0.85rem',
+                    borderRadius: '9999px',
+                    background: isDark ? 'rgba(216, 200, 184, 0.15)' : 'rgba(54, 61, 57, 0.1)',
+                    border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.2)',
+                    color: isDark ? '#F6F1EC' : '#222724',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  <Users size={13} />
+                  <span>8 Minds • One Purpose</span>
+                </div>
+              </div>
+
+              {/* The Cover Photo - 100% visible, completely uncropped, zero overlays blocking anyone */}
+              <div style={{ width: '100%', position: 'relative', overflow: 'hidden', background: isDark ? '#1F2421' : '#DDD2C5' }}>
+                <img
+                  src="/images/hero-cover.jpg"
+                  alt="DEVI FARLO Team - You Have To Do It"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    maxHeight: 'none',
+                    objectFit: 'contain',
+                  }}
+                />
+              </div>
+
+              {/* Bottom Caption Bar - Cleanly positioned below the photo */}
+              <div
+                style={{
+                  padding: '0.85rem 1.4rem',
+                  background: isDark ? 'rgba(34, 39, 36, 0.95)' : 'rgba(235, 226, 217, 0.95)',
+                  borderTop: isDark ? '1px solid rgba(216, 200, 184, 0.18)' : '1px solid rgba(54, 61, 57, 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '0.6rem',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)',
+                    fontWeight: 800,
+                    color: isDark ? '#F6F1EC' : '#222724',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  DEVI FARLO — <span style={{ color: isDark ? '#D8C8B8' : '#363D39', fontStyle: 'italic' }}>"You have to do it."</span>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: isDark ? '#C0B5AA' : '#4E5651', fontWeight: 600 }}>
+                  Official Group Portrait • Every Visionary United
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Scroll Down Indicator */}
           <motion.div
             variants={itemVariants}
@@ -251,7 +410,7 @@ export default function Hero() {
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               cursor: 'pointer',
-              padding: '1.5rem 0.5rem 0.5rem 0.5rem',
+              padding: '0.5rem 0.5rem 0.5rem 0.5rem',
               fontWeight: 600,
             }}
             onClick={() => scrollTo('#stats')}

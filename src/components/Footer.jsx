@@ -66,7 +66,7 @@ export default function Footer() {
               marginBottom: '0.5rem',
             }}
           >
-            "You can do it."
+            "You have to do it."
           </div>
 
           {/* Slogan */}

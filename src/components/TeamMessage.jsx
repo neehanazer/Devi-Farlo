@@ -123,7 +123,7 @@ export default function TeamMessage() {
                 textShadow: isDark ? '0 0 25px rgba(216, 200, 184, 0.4)' : '0 0 25px rgba(54, 61, 57, 0.15)',
               }}
             >
-              "YOU CAN DO IT."
+              "YOU HAVE TO DO IT."
             </div>
           </motion.div>
 

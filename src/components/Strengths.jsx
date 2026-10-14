@@ -124,7 +124,7 @@ export default function Strengths() {
               100%
             </div>
             <div style={{ fontSize: '0.8rem', color: '#F6F1EC' }}>
-              "You Can Do It" Commitment
+              "You Have To Do It" Commitment
             </div>
           </div>
         </div>

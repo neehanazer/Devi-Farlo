@@ -69,7 +69,7 @@ export default function MeetTeam({ onSelectMember }) {
             fontWeight: 500 
           }}>
             Eight unique perspectives forged into an inseparable alliance.
-            Every member brings distinct mastery, boundless passion, and an unwavering commitment to the motto: <em>"You can do it."</em>
+            Every member brings distinct mastery, boundless passion, and an unwavering commitment to the motto: <em>"You have to do it."</em>
           </p>
         </div>
 

@@ -96,16 +96,6 @@ export default function MemberCard({ member, onSelect, index }) {
           className="member-img"
           loading="lazy"
         />
-        {/* Subtle gradient vignette at bottom of image */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: isDark 
-              ? 'linear-gradient(to top, rgba(43, 49, 46, 0.95) 0%, rgba(43, 49, 46, 0.2) 60%, transparent 100%)'
-              : 'linear-gradient(to top, rgba(235, 226, 217, 0.95) 0%, rgba(235, 226, 217, 0.2) 60%, transparent 100%)',
-          }}
-        />
       </div>
 
       {/* Card Content */}

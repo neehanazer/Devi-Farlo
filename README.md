@@ -1,7 +1,7 @@
 # Devi-Farlo
 
 > Official showcase website for **DEVI FARLO** — *"Different individuals. One team. Endless possibilities."*  
-> Team Anthem: *"YOU CAN DO IT."*
+> Team Anthem: *"YOU HAVE TO DO IT."*
 
 ## 🌟 Overview
 DEVI FARLO is an interactive, responsive team showcase web application built with React, Vite, Framer Motion, and Ant Design.

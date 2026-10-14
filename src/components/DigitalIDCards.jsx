@@ -314,7 +314,7 @@ export default function DigitalIDCards() {
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#C0B5AA', fontSize: '0.8rem' }}>
                         <CheckCircle2 size={15} color="#D8C8B8" />
-                        <span>Unconditional support: "You can do it."</span>
+                        <span>Unconditional support: "You have to do it."</span>
                       </li>
                       <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#C0B5AA', fontSize: '0.8rem' }}>
                         <CheckCircle2 size={15} color="#D8C8B8" />
