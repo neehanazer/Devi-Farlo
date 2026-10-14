@@ -32,7 +32,6 @@ export default function Navbar() {
     { name: "Home", href: "#hero" },
     { name: "Stats", href: "#stats" },
     { name: "Meet Our Team", href: "#team" },
-    { name: "Digital IDs", href: "#digital-ids" },
     { name: "Team Anthem", href: "#team-message" },
   ];
 

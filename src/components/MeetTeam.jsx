@@ -14,8 +14,8 @@ export default function MeetTeam({ onSelectMember }) {
   const categories = [
     { id: 'all', label: 'All Members (08)' },
     { id: 'leadership', label: 'Leadership (02)' },
-    { id: 'engineering', label: 'Tech & AI (03)' },
-    { id: 'creative', label: 'Design & Strategy (03)' },
+    { id: 'engineering', label: 'Tech & Engineering (02)' },
+    { id: 'strategy', label: 'Strategy & Innovation (04)' },
   ];
 
   const filteredMembers = useMemo(() => {
@@ -25,9 +25,9 @@ export default function MeetTeam({ onSelectMember }) {
       if (activeCategory === 'leadership') {
         matchesCategory = member.role === 'Captain' || member.role === 'Vice-Captain';
       } else if (activeCategory === 'engineering') {
-        matchesCategory = ['DF-03', 'DF-05', 'DF-07', 'DF-08'].includes(member.id);
-      } else if (activeCategory === 'creative') {
-        matchesCategory = ['DF-04', 'DF-06'].includes(member.id);
+        matchesCategory = ['DF-03', 'DF-07'].includes(member.id);
+      } else if (activeCategory === 'strategy') {
+        matchesCategory = ['DF-04', 'DF-05', 'DF-06', 'DF-08'].includes(member.id);
       }
 
       // Search query filter

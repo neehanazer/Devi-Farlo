@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, CreditCard } from 'lucide-react';
+import { ArrowDown, Sparkles, Users, Heart } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Hero() {
@@ -213,7 +213,7 @@ export default function Hero() {
             </button>
 
             <button
-              onClick={() => scrollTo('#digital-ids')}
+              onClick={() => scrollTo('#team-message')}
               style={{
                 backgroundColor: isDark ? 'rgba(216, 200, 184, 0.1)' : 'rgba(54, 61, 57, 0.08)',
                 color: isDark ? '#F6F1EC' : '#222724',
@@ -233,8 +233,8 @@ export default function Hero() {
               }}
               className="hero-btn"
             >
-              <CreditCard size={18} />
-              <span>Digital ID Passes</span>
+              <Heart size={18} />
+              <span>Our Team Anthem</span>
             </button>
           </motion.div>
 
