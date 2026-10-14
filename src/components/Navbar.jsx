@@ -167,7 +167,7 @@ export default function Navbar() {
                 transition: 'all 0.2s ease',
                 marginLeft: '0.35rem',
               }}
-              title={isDark ? "Switch to Light Mode (#D8C8B8)" : "Switch to Dark Mode (#363D39)"}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
               aria-label="Toggle theme mode"
             >
               {isDark ? (
@@ -354,7 +354,7 @@ export default function Navbar() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                   {isDark ? <Sun size={18} color="#D8C8B8" /> : <Moon size={18} color="#363D39" />}
                   <span style={{ fontSize: '0.9rem', fontWeight: 700, color: isDark ? '#F6F1EC' : '#222724' }}>
-                    {isDark ? "Light Mode (#D8C8B8)" : "Dark Mode (#363D39)"}
+                    {isDark ? "Light Mode" : "Dark Mode"}
                   </span>
                 </div>
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: isDark ? '#D8C8B8' : '#363D39', textTransform: 'uppercase' }}>
