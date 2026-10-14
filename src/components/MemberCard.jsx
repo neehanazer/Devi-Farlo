@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Eye } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function MemberCard({ member, onSelect, index }) {
+  const { isDark } = useTheme();
   const isLeadership = member.role === 'Captain' || member.role === 'Vice-Captain';
 
   return (
@@ -19,8 +21,10 @@ export default function MemberCard({ member, onSelect, index }) {
         overflow: 'hidden',
         position: 'relative',
         height: '100%',
-        backgroundColor: 'rgba(255, 255, 255, 0.65)',
-        border: '1px solid rgba(54, 61, 57, 0.14)',
+        backgroundColor: isDark ? 'rgba(43, 49, 46, 0.78)' : 'rgba(255, 255, 255, 0.65)',
+        border: isDark ? '1px solid rgba(216, 200, 184, 0.2)' : '1px solid rgba(54, 61, 57, 0.14)',
+        boxShadow: isDark ? '0 10px 30px rgba(0, 0, 0, 0.35)' : '0 10px 30px rgba(54, 61, 57, 0.08)',
+        transition: 'all 0.3s ease',
       }}
     >
       {/* Top Banner Tag */}
@@ -38,9 +42,9 @@ export default function MemberCard({ member, onSelect, index }) {
           fontSize: '0.75rem',
           fontWeight: 800,
           letterSpacing: '0.08em',
-          background: '#363D39',
-          color: '#D8C8B8',
-          boxShadow: '0 2px 8px rgba(54, 61, 57, 0.25)',
+          background: isDark ? '#D8C8B8' : '#363D39',
+          color: isDark ? '#363D39' : '#D8C8B8',
+          boxShadow: isDark ? '0 2px 8px rgba(0, 0, 0, 0.4)' : '0 2px 8px rgba(54, 61, 57, 0.25)',
         }}
       >
         <span>{member.id}</span>
@@ -59,10 +63,10 @@ export default function MemberCard({ member, onSelect, index }) {
             fontWeight: 800,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            background: 'rgba(54, 61, 57, 0.1)',
+            background: isDark ? 'rgba(216, 200, 184, 0.18)' : 'rgba(54, 61, 57, 0.1)',
             backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(54, 61, 57, 0.25)',
-            color: '#363D39',
+            border: isDark ? '1px solid rgba(216, 200, 184, 0.35)' : '1px solid rgba(54, 61, 57, 0.25)',
+            color: isDark ? '#F6F1EC' : '#363D39',
           }}
         >
           Leadership
@@ -76,7 +80,7 @@ export default function MemberCard({ member, onSelect, index }) {
           height: '240px',
           width: '100%',
           overflow: 'hidden',
-          backgroundColor: '#C5B5A5',
+          backgroundColor: isDark ? '#262B28' : '#C5B5A5',
         }}
       >
         <img
@@ -97,7 +101,9 @@ export default function MemberCard({ member, onSelect, index }) {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(235, 226, 217, 0.95) 0%, rgba(235, 226, 217, 0.2) 60%, transparent 100%)',
+            background: isDark 
+              ? 'linear-gradient(to top, rgba(43, 49, 46, 0.95) 0%, rgba(43, 49, 46, 0.2) 60%, transparent 100%)'
+              : 'linear-gradient(to top, rgba(235, 226, 217, 0.95) 0%, rgba(235, 226, 217, 0.2) 60%, transparent 100%)',
           }}
         />
       </div>
@@ -119,7 +125,7 @@ export default function MemberCard({ member, onSelect, index }) {
               fontWeight: 800,
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              color: '#363D39',
+              color: isDark ? '#D8C8B8' : '#363D39',
               marginBottom: '0.2rem',
             }}
           >
@@ -129,7 +135,7 @@ export default function MemberCard({ member, onSelect, index }) {
             style={{
               fontSize: '1.35rem',
               fontWeight: 800,
-              color: '#222724',
+              color: isDark ? '#F6F1EC' : '#222724',
               lineHeight: 1.2,
             }}
           >
@@ -145,15 +151,15 @@ export default function MemberCard({ member, onSelect, index }) {
             gap: '0.4rem',
             padding: '0.35rem 0.75rem',
             borderRadius: '0.5rem',
-            background: 'rgba(54, 61, 57, 0.08)',
-            border: '1px solid rgba(54, 61, 57, 0.18)',
+            background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+            border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.18)',
             marginBottom: '0.85rem',
             fontSize: '0.8rem',
             fontWeight: 700,
-            color: '#222724',
+            color: isDark ? '#F6F1EC' : '#222724',
           }}
         >
-          <Sparkles size={14} color="#363D39" />
+          <Sparkles size={14} color={isDark ? '#D8C8B8' : '#363D39'} />
           <span>{member.superpower}</span>
         </div>
 
@@ -162,7 +168,7 @@ export default function MemberCard({ member, onSelect, index }) {
           style={{
             fontSize: '0.85rem',
             fontStyle: 'italic',
-            color: '#4E5651',
+            color: isDark ? '#C0B5AA' : '#4E5651',
             lineHeight: 1.5,
             marginBottom: '1rem',
             flex: 1,
@@ -176,15 +182,15 @@ export default function MemberCard({ member, onSelect, index }) {
         <div
           style={{
             fontSize: '0.78rem',
-            color: '#4E5651',
+            color: isDark ? '#C0B5AA' : '#4E5651',
             marginBottom: '1.2rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.4rem',
           }}
         >
-          <span style={{ color: '#717B74' }}>Strength:</span>
-          <strong style={{ color: '#363D39' }}>{member.strength}</strong>
+          <span style={{ color: isDark ? '#948B82' : '#717B74' }}>Strength:</span>
+          <strong style={{ color: isDark ? '#D8C8B8' : '#363D39' }}>{member.strength}</strong>
         </div>
 
         {/* Button to open profile dossier */}
@@ -194,8 +200,8 @@ export default function MemberCard({ member, onSelect, index }) {
             width: '100%',
             padding: '0.75rem',
             borderRadius: '0.75rem',
-            backgroundColor: '#363D39',
-            color: '#D8C8B8',
+            backgroundColor: isDark ? '#D8C8B8' : '#363D39',
+            color: isDark ? '#363D39' : '#D8C8B8',
             border: 'none',
             fontSize: '0.85rem',
             fontWeight: 700,
@@ -205,13 +211,13 @@ export default function MemberCard({ member, onSelect, index }) {
             justifyContent: 'center',
             gap: '0.5rem',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 12px rgba(54, 61, 57, 0.2)',
+            boxShadow: isDark ? '0 4px 12px rgba(0, 0, 0, 0.35)' : '0 4px 12px rgba(54, 61, 57, 0.2)',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#1E2320';
+            e.currentTarget.style.backgroundColor = isDark ? '#EDE4DB' : '#1E2320';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#363D39';
+            e.currentTarget.style.backgroundColor = isDark ? '#D8C8B8' : '#363D39';
           }}
         >
           <Eye size={15} />

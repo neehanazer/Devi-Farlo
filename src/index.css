@@ -34,6 +34,55 @@
   --glass-shadow: 0 12px 32px 0 rgba(54, 61, 57, 0.08);
 }
 
+/* Dark Theme - #363D39 Base */
+[data-theme="dark"] {
+  --bg-primary: #363D39;
+  --bg-secondary: #2B312E;
+  --bg-tertiary: #222724;
+  --bg-card: rgba(43, 49, 46, 0.72);
+  --bg-card-hover: rgba(54, 61, 57, 0.9);
+
+  --accent-dark: #D8C8B8;
+  --accent-dark-hover: #EAE1D7;
+  --accent-light: #363D39;
+  --accent-glow: rgba(216, 200, 184, 0.25);
+
+  --text-main: #F6F1EC;
+  --text-muted: #C0B5AA;
+  --text-dim: #948B82;
+
+  --border-glass: rgba(216, 200, 184, 0.15);
+  --border-glass-bright: rgba(216, 200, 184, 0.35);
+  --glass-shadow: 0 12px 36px 0 rgba(18, 22, 20, 0.55);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #363D39;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #4E5651;
+  border: 1px solid rgba(216, 200, 184, 0.15);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #D8C8B8;
+}
+
+[data-theme="dark"] .gradient-text-gold,
+[data-theme="dark"] .gradient-text-cream,
+[data-theme="dark"] .gradient-text-cyan,
+[data-theme="dark"] .gradient-text-sage {
+  background: linear-gradient(135deg, #FFFFFF 15%, #D8C8B8 65%, #C2B09F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .section-badge,
+[data-theme="dark"] .section-badge-cyan {
+  color: #D8C8B8;
+  background: rgba(216, 200, 184, 0.1);
+  border: 1px solid rgba(216, 200, 184, 0.25);
+}
+
 /* Base resets & typography */
 * {
   margin: 0;

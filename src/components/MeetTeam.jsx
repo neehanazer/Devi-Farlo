@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { Search, Users } from 'lucide-react';
 import { Input } from 'antd';
 import { teamMembers } from '../data/teamData';
+import { useTheme } from '../context/ThemeContext';
 import MemberCard from './MemberCard';
 
 export default function MeetTeam({ onSelectMember }) {
+  const { isDark } = useTheme();
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -59,7 +61,13 @@ export default function MeetTeam({ onSelectMember }) {
           >
             Meet Our <span className="gradient-text-sage">Team</span>
           </h2>
-          <p style={{ color: '#4E5651', fontSize: 'clamp(0.92rem, 2.4vw, 1.05rem)', lineHeight: 1.6, padding: '0 0.5rem', fontWeight: 500 }}>
+          <p style={{ 
+            color: isDark ? '#D8C8B8' : '#4E5651', 
+            fontSize: 'clamp(0.92rem, 2.4vw, 1.05rem)', 
+            lineHeight: 1.6, 
+            padding: '0 0.5rem', 
+            fontWeight: 500 
+          }}>
             Eight unique perspectives forged into an inseparable alliance.
             Every member brings distinct mastery, boundless passion, and an unwavering commitment to the motto: <em>"You can do it."</em>
           </p>
@@ -68,43 +76,56 @@ export default function MeetTeam({ onSelectMember }) {
         {/* Filter and Search Bar */}
         <div className="team-filter-bar">
           {/* Horizontal scrollable category tabs on mobile */}
-          <div className="team-tabs-scroll">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                style={{
-                  border: 'none',
-                  borderRadius: '9999px',
-                  padding: '0.5rem 1.1rem',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  backgroundColor: activeCategory === cat.id ? '#363D39' : 'rgba(54, 61, 57, 0.08)',
-                  color: activeCategory === cat.id ? '#D8C8B8' : '#4E5651',
-                  boxShadow: activeCategory === cat.id ? '0 4px 15px rgba(54, 61, 57, 0.25)' : 'none',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                }}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div 
+            className="team-tabs-scroll"
+            style={{
+              backgroundColor: isDark ? 'rgba(38, 43, 40, 0.85)' : 'rgba(54, 61, 57, 0.08)',
+              border: isDark ? '1px solid rgba(216, 200, 184, 0.2)' : '1px solid rgba(54, 61, 57, 0.15)',
+            }}
+          >
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  style={{
+                    border: 'none',
+                    borderRadius: '9999px',
+                    padding: '0.5rem 1.1rem',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    backgroundColor: isActive 
+                      ? (isDark ? '#D8C8B8' : '#363D39') 
+                      : 'transparent',
+                    color: isActive 
+                      ? (isDark ? '#363D39' : '#D8C8B8') 
+                      : (isDark ? '#C0B5AA' : '#4E5651'),
+                    boxShadow: isActive ? '0 4px 15px rgba(0, 0, 0, 0.25)' : 'none',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                  }}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Search Box */}
           <div className="team-search-wrap">
             <Input
               placeholder="Search by name, role, or superpower..."
-              prefix={<Search size={16} color="#4E5651" style={{ marginRight: '6px' }} />}
+              prefix={<Search size={16} color={isDark ? '#D8C8B8' : '#4E5651'} style={{ marginRight: '6px' }} />}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               allowClear
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.75)',
-                borderColor: 'rgba(54, 61, 57, 0.2)',
-                color: '#222724',
+                backgroundColor: isDark ? 'rgba(43, 49, 46, 0.85)' : 'rgba(255, 255, 255, 0.75)',
+                borderColor: isDark ? 'rgba(216, 200, 184, 0.25)' : 'rgba(54, 61, 57, 0.2)',
+                color: isDark ? '#F6F1EC' : '#222724',
                 borderRadius: '9999px',
                 padding: '0.55rem 1.1rem',
                 width: '100%',
@@ -130,7 +151,7 @@ export default function MeetTeam({ onSelectMember }) {
             style={{
               textAlign: 'center',
               padding: '3rem 1rem',
-              color: '#4E5651',
+              color: isDark ? '#C0B5AA' : '#4E5651',
               fontSize: '1rem',
             }}
           >

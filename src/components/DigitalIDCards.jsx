@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, QrCode, Sparkles, Shield, RotateCw, CheckCircle2 } from 'lucide-react';
 import { teamMembers } from '../data/teamData';
+import { useTheme } from '../context/ThemeContext';
 
 export default function DigitalIDCards() {
+  const { isDark } = useTheme();
   const [selectedMemberId, setSelectedMemberId] = useState(teamMembers[0].id);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -21,42 +23,65 @@ export default function DigitalIDCards() {
           <h2 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, marginBottom: '0.85rem' }}>
             Digital <span className="gradient-text-sage">ID Passes</span>
           </h2>
-          <p style={{ color: '#4E5651', fontSize: 'clamp(0.92rem, 2.4vw, 1.05rem)', lineHeight: 1.6, padding: '0 0.5rem', fontWeight: 500 }}>
+          <p style={{ 
+            color: isDark ? '#D8C8B8' : '#4E5651', 
+            fontSize: 'clamp(0.92rem, 2.4vw, 1.05rem)', 
+            lineHeight: 1.6, 
+            padding: '0 0.5rem', 
+            fontWeight: 500 
+          }}>
             Each member carries an encrypted identity pass reflecting their rank, signature superpower, and permanent commitment to the team creed.
           </p>
         </div>
 
         {/* Member Selector Tabs */}
         <div className="id-selector-container">
-          {teamMembers.map((member) => (
-            <button
-              key={member.id}
-              onClick={() => {
-                setSelectedMemberId(member.id);
-                setIsFlipped(false);
-              }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: '0.45rem 0.95rem',
-                borderRadius: '9999px',
-                border: selectedMemberId === member.id ? '1px solid #363D39' : '1px solid rgba(54, 61, 57, 0.15)',
-                background: selectedMemberId === member.id ? '#363D39' : 'rgba(54, 61, 57, 0.08)',
-                color: selectedMemberId === member.id ? '#D8C8B8' : '#4E5651',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                flexShrink: 0,
-                whiteSpace: 'nowrap',
-                boxShadow: selectedMemberId === member.id ? '0 4px 12px rgba(54, 61, 57, 0.25)' : 'none',
-              }}
-            >
-              <span style={{ color: selectedMemberId === member.id ? '#D8C8B8' : '#363D39', fontWeight: 900, fontSize: '0.72rem' }}>{member.id}</span>
-              <span>{member.name.split(' ')[0]}</span>
-            </button>
-          ))}
+          {teamMembers.map((member) => {
+            const isSelected = selectedMemberId === member.id;
+            return (
+              <button
+                key={member.id}
+                onClick={() => {
+                  setSelectedMemberId(member.id);
+                  setIsFlipped(false);
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  padding: '0.45rem 0.95rem',
+                  borderRadius: '9999px',
+                  border: isSelected 
+                    ? (isDark ? '1px solid #D8C8B8' : '1px solid #363D39') 
+                    : (isDark ? '1px solid rgba(216, 200, 184, 0.15)' : '1px solid rgba(54, 61, 57, 0.15)'),
+                  background: isSelected 
+                    ? (isDark ? '#D8C8B8' : '#363D39') 
+                    : (isDark ? 'rgba(43, 49, 46, 0.7)' : 'rgba(54, 61, 57, 0.08)'),
+                  color: isSelected 
+                    ? (isDark ? '#363D39' : '#D8C8B8') 
+                    : (isDark ? '#C0B5AA' : '#4E5651'),
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  flexShrink: 0,
+                  whiteSpace: 'nowrap',
+                  boxShadow: isSelected ? '0 4px 12px rgba(0, 0, 0, 0.3)' : 'none',
+                }}
+              >
+                <span style={{ 
+                  color: isSelected 
+                    ? (isDark ? '#363D39' : '#D8C8B8') 
+                    : (isDark ? '#D8C8B8' : '#363D39'), 
+                  fontWeight: 900, 
+                  fontSize: '0.72rem' 
+                }}>
+                  {member.id}
+                </span>
+                <span>{member.name.split(' ')[0]}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Interactive Holographic Card Display */}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Footer() {
+  const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
 
   const navLinks = [
@@ -20,10 +22,11 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#C5B5A5',
-        borderTop: '1px solid rgba(54, 61, 57, 0.15)',
+        backgroundColor: isDark ? '#222724' : '#C5B5A5',
+        borderTop: isDark ? '1px solid rgba(216, 200, 184, 0.15)' : '1px solid rgba(54, 61, 57, 0.15)',
         padding: '3.5rem 0 2.5rem 0',
         position: 'relative',
+        transition: 'background-color 0.3s ease, border-color 0.3s ease',
       }}
     >
       <div className="container-custom">
@@ -45,7 +48,7 @@ export default function Footer() {
               fontSize: 'clamp(1.6rem, 5vw, 2rem)',
               fontWeight: 900,
               letterSpacing: '0.08em',
-              color: '#222724',
+              color: isDark ? '#F6F1EC' : '#222724',
               marginBottom: '0.5rem',
             }}
           >
@@ -59,7 +62,7 @@ export default function Footer() {
               fontSize: 'clamp(1rem, 3.5vw, 1.15rem)',
               fontWeight: 900,
               letterSpacing: '0.12em',
-              color: '#363D39',
+              color: isDark ? '#D8C8B8' : '#363D39',
               textTransform: 'uppercase',
               marginBottom: '0.5rem',
             }}
@@ -71,7 +74,7 @@ export default function Footer() {
           <p
             style={{
               fontSize: '0.95rem',
-              color: '#4E5651',
+              color: isDark ? '#C0B5AA' : '#4E5651',
               lineHeight: 1.6,
               marginBottom: '2rem',
               maxWidth: '520px',
@@ -83,7 +86,7 @@ export default function Footer() {
           </p>
 
           {/* Navigation Links */}
-          <nav className="footer-nav">
+          <nav className="footer-nav" style={{ borderBottomColor: isDark ? 'rgba(216, 200, 184, 0.15)' : 'rgba(54, 61, 57, 0.15)' }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -93,15 +96,15 @@ export default function Footer() {
                   scrollTo(link.href);
                 }}
                 style={{
-                  color: '#4E5651',
+                  color: isDark ? '#D8C8B8' : '#4E5651',
                   textDecoration: 'none',
                   fontSize: '0.88rem',
                   fontWeight: 600,
                   transition: 'color 0.2s ease',
                   padding: '0.25rem 0.5rem',
                 }}
-                onMouseEnter={(e) => (e.target.style.color = '#181C1A')}
-                onMouseLeave={(e) => (e.target.style.color = '#4E5651')}
+                onMouseEnter={(e) => (e.target.style.color = isDark ? '#FFFFFF' : '#181C1A')}
+                onMouseLeave={(e) => (e.target.style.color = isDark ? '#D8C8B8' : '#4E5651')}
               >
                 {link.name}
               </a>
@@ -109,7 +112,7 @@ export default function Footer() {
           </nav>
 
           {/* Bottom Copyright & Back to Top */}
-          <div className="footer-bottom-row" style={{ color: '#4E5651', fontWeight: 500 }}>
+          <div className="footer-bottom-row" style={{ color: isDark ? '#C0B5AA' : '#4E5651', fontWeight: 500 }}>
             <div>
               © {currentYear} DEVI FARLO. All rights reserved.
             </div>
@@ -122,15 +125,15 @@ export default function Footer() {
                 gap: '0.4rem',
                 background: 'transparent',
                 border: 'none',
-                color: '#363D39',
+                color: isDark ? '#D8C8B8' : '#363D39',
                 cursor: 'pointer',
                 fontSize: '0.85rem',
                 fontWeight: 700,
                 transition: 'color 0.2s',
                 padding: '0.4rem',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#181C1A')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#363D39')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = isDark ? '#FFFFFF' : '#181C1A')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = isDark ? '#D8C8B8' : '#363D39')}
             >
               <span>Back to Top</span>
               <ArrowUp size={15} />

@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Users, Eye, Fingerprint, Sparkles } from 'lucide-react';
 import { teamStats } from '../data/teamData';
+import { useTheme } from '../context/ThemeContext';
 
-function AnimatedCounter({ endValue, inView }) {
+function AnimatedCounter({ endValue, inView, isDark }) {
   const [display, setDisplay] = useState('00');
   const [isInfinity, setIsInfinity] = useState(false);
 
@@ -58,8 +59,8 @@ function AnimatedCounter({ endValue, inView }) {
         transition={{ duration: isInfinity ? 0.6 : 0.08, ease: "easeOut" }}
         style={{
           display: 'inline-block',
-          textShadow: isInfinity ? '0 0 25px rgba(54, 61, 57, 0.2)' : 'none',
-          color: isInfinity ? '#363D39' : '#4E5651',
+          textShadow: isInfinity ? (isDark ? '0 0 25px rgba(216, 200, 184, 0.4)' : '0 0 25px rgba(54, 61, 57, 0.2)') : 'none',
+          color: isInfinity ? (isDark ? '#F6F1EC' : '#363D39') : (isDark ? '#C0B5AA' : '#4E5651'),
         }}
       >
         {display}
@@ -71,16 +72,19 @@ function AnimatedCounter({ endValue, inView }) {
 }
 
 export default function TeamStatistics() {
+  const { isDark } = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
+  const iconColor = isDark ? '#D8C8B8' : '#363D39';
+
   const getIcon = (index) => {
     switch (index) {
-      case 0: return <Users size={22} color="#363D39" />;
-      case 1: return <Eye size={22} color="#363D39" />;
-      case 2: return <Fingerprint size={22} color="#363D39" />;
-      case 3: return <Sparkles size={22} color="#363D39" />;
-      default: return <Users size={22} color="#363D39" />;
+      case 0: return <Users size={22} color={iconColor} />;
+      case 1: return <Eye size={22} color={iconColor} />;
+      case 2: return <Fingerprint size={22} color={iconColor} />;
+      case 3: return <Sparkles size={22} color={iconColor} />;
+      default: return <Users size={22} color={iconColor} />;
     }
   };
 
@@ -91,9 +95,12 @@ export default function TeamStatistics() {
       style={{
         padding: '3rem 0',
         position: 'relative',
-        background: 'linear-gradient(180deg, #D8C8B8 0%, #E3D7CA 50%, #D8C8B8 100%)',
-        borderTop: '1px solid rgba(54, 61, 57, 0.12)',
-        borderBottom: '1px solid rgba(54, 61, 57, 0.12)',
+        background: isDark 
+          ? 'linear-gradient(180deg, #363D39 0%, #2A302D 50%, #363D39 100%)'
+          : 'linear-gradient(180deg, #D8C8B8 0%, #E3D7CA 50%, #D8C8B8 100%)',
+        borderTop: isDark ? '1px solid rgba(216, 200, 184, 0.15)' : '1px solid rgba(54, 61, 57, 0.12)',
+        borderBottom: isDark ? '1px solid rgba(216, 200, 184, 0.15)' : '1px solid rgba(54, 61, 57, 0.12)',
+        transition: 'background 0.3s ease, border-color 0.3s ease',
       }}
     >
       <div className="container-custom">
@@ -109,8 +116,10 @@ export default function TeamStatistics() {
                 textAlign: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                backgroundColor: 'rgba(255, 255, 255, 0.65)',
-                border: '1px solid rgba(54, 61, 57, 0.14)',
+                backgroundColor: isDark ? 'rgba(43, 49, 46, 0.75)' : 'rgba(255, 255, 255, 0.65)',
+                border: isDark ? '1px solid rgba(216, 200, 184, 0.18)' : '1px solid rgba(54, 61, 57, 0.14)',
+                boxShadow: isDark ? '0 10px 25px rgba(0, 0, 0, 0.3)' : '0 10px 25px rgba(54, 61, 57, 0.08)',
+                transition: 'all 0.3s ease',
               }}
             >
               <div
@@ -120,8 +129,8 @@ export default function TeamStatistics() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   borderRadius: '12px',
-                  background: 'rgba(54, 61, 57, 0.08)',
-                  border: '1px solid rgba(54, 61, 57, 0.18)',
+                  background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+                  border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.18)',
                   marginBottom: '0.85rem',
                 }}
               >
@@ -137,7 +146,7 @@ export default function TeamStatistics() {
                   lineHeight: 1,
                   marginBottom: '0.45rem',
                   letterSpacing: '-0.02em',
-                  color: '#363D39',
+                  color: isDark ? '#F6F1EC' : '#363D39',
                   minHeight: '1.1em',
                   display: 'flex',
                   alignItems: 'center',
@@ -147,6 +156,7 @@ export default function TeamStatistics() {
                 <AnimatedCounter
                   endValue={item.value}
                   inView={isInView}
+                  isDark={isDark}
                 />
               </div>
 
@@ -158,7 +168,7 @@ export default function TeamStatistics() {
                   fontWeight: 800,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: '#222724',
+                  color: isDark ? '#D8C8B8' : '#222724',
                   marginBottom: '0.25rem',
                 }}
               >
@@ -169,7 +179,7 @@ export default function TeamStatistics() {
               <div
                 style={{
                   fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)',
-                  color: '#4E5651',
+                  color: isDark ? '#C0B5AA' : '#4E5651',
                   fontWeight: 500,
                   lineHeight: 1.3,
                 }}

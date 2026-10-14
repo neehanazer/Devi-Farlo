@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Sparkles, Users, CreditCard } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Hero() {
+  const { isDark } = useTheme();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,16 +45,19 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Background Image Composition with Cashmere #D8C8B8 Overlays */}
+      {/* Background Image Composition with Theme Overlays */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: `linear-gradient(to bottom, rgba(216, 200, 184, 0.75) 0%, rgba(216, 200, 184, 0.92) 65%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
+          backgroundImage: isDark
+            ? `linear-gradient(to bottom, rgba(54,61,57,0.72) 0%, rgba(54,61,57,0.88) 65%, #363D39 100%), url('/images/team-cover.jpg')`
+            : `linear-gradient(to bottom, rgba(216, 200, 184, 0.75) 0%, rgba(216, 200, 184, 0.92) 65%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
           filter: 'contrast(1.03)',
+          transition: 'all 0.3s ease',
         }}
       />
 
@@ -61,7 +67,9 @@ export default function Hero() {
         style={{
           width: '450px',
           height: '450px',
-          background: 'radial-gradient(circle, rgba(54, 61, 57, 0.12) 0%, transparent 70%)',
+          background: isDark
+            ? 'radial-gradient(circle, rgba(216,200,184,0.15) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(54, 61, 57, 0.12) 0%, transparent 70%)',
           top: '10%',
           left: '5%',
         }}
@@ -71,7 +79,9 @@ export default function Hero() {
         style={{
           width: '500px',
           height: '500px',
-          background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%)',
+          background: isDark
+            ? 'radial-gradient(circle, rgba(34,39,36,0.6) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%)',
           top: '30%',
           right: '5%',
         }}
@@ -112,7 +122,7 @@ export default function Hero() {
             style={{
               fontSize: 'clamp(1.1rem, 3.5vw, 1.7rem)',
               fontWeight: 700,
-              color: '#222724',
+              color: isDark ? '#F6F1EC' : '#222724',
               lineHeight: 1.4,
               marginBottom: '1rem',
               letterSpacing: '-0.01em',
@@ -130,9 +140,9 @@ export default function Hero() {
               margin: '0.25rem 0 1.5rem 0',
               padding: '0.5rem 1.35rem',
               borderRadius: '9999px',
-              background: 'rgba(54, 61, 57, 0.08)',
-              border: '1px solid rgba(54, 61, 57, 0.25)',
-              boxShadow: '0 4px 20px rgba(54, 61, 57, 0.08)',
+              background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+              border: isDark ? '1px solid rgba(216, 200, 184, 0.3)' : '1px solid rgba(54, 61, 57, 0.25)',
+              boxShadow: isDark ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(54, 61, 57, 0.08)',
               maxWidth: '92vw',
             }}
           >
@@ -142,7 +152,7 @@ export default function Hero() {
                 fontSize: 'clamp(0.95rem, 3vw, 1.35rem)',
                 fontWeight: 900,
                 letterSpacing: '0.14em',
-                color: '#363D39',
+                color: isDark ? '#D8C8B8' : '#363D39',
                 textTransform: 'uppercase',
               }}
             >
@@ -155,7 +165,7 @@ export default function Hero() {
             variants={itemVariants}
             style={{
               fontSize: 'clamp(0.95rem, 2.4vw, 1.05rem)',
-              color: '#4E5651',
+              color: isDark ? '#C0B5AA' : '#4E5651',
               lineHeight: 1.65,
               maxWidth: '720px',
               margin: '0 auto 2rem auto',
@@ -183,15 +193,15 @@ export default function Hero() {
             <button
               onClick={() => scrollTo('#team')}
               style={{
-                backgroundColor: '#363D39',
-                color: '#D8C8B8',
+                backgroundColor: isDark ? '#D8C8B8' : '#363D39',
+                color: isDark ? '#363D39' : '#D8C8B8',
                 padding: '0.85rem 1.8rem',
                 borderRadius: '9999px',
                 fontSize: '0.95rem',
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(54, 61, 57, 0.25)',
+                boxShadow: isDark ? '0 8px 25px rgba(0, 0, 0, 0.4)' : '0 8px 25px rgba(54, 61, 57, 0.25)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -208,13 +218,13 @@ export default function Hero() {
             <button
               onClick={() => scrollTo('#digital-ids')}
               style={{
-                backgroundColor: 'rgba(54, 61, 57, 0.08)',
-                color: '#222724',
+                backgroundColor: isDark ? 'rgba(216, 200, 184, 0.1)' : 'rgba(54, 61, 57, 0.08)',
+                color: isDark ? '#F6F1EC' : '#222724',
                 padding: '0.85rem 1.7rem',
                 borderRadius: '9999px',
                 fontSize: '0.95rem',
                 fontWeight: 600,
-                border: '1px solid rgba(54, 61, 57, 0.25)',
+                border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.25)',
                 backdropFilter: 'blur(10px)',
                 cursor: 'pointer',
                 display: 'inline-flex',
@@ -240,9 +250,11 @@ export default function Hero() {
               margin: '0 auto 2.5rem auto',
               borderRadius: '1.5rem',
               overflow: 'hidden',
-              boxShadow: '0 20px 50px -10px rgba(54, 61, 57, 0.25), 0 0 35px rgba(54, 61, 57, 0.1)',
-              border: '2px solid rgba(54, 61, 57, 0.22)',
-              backgroundColor: '#C5B5A5',
+              boxShadow: isDark
+                ? '0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 35px rgba(216, 200, 184, 0.15)'
+                : '0 20px 50px -10px rgba(54, 61, 57, 0.25), 0 0 35px rgba(54, 61, 57, 0.1)',
+              border: isDark ? '2px solid rgba(216, 200, 184, 0.25)' : '2px solid rgba(54, 61, 57, 0.22)',
+              backgroundColor: isDark ? '#2B312E' : '#C5B5A5',
             }}
           >
             {/* Top Badge */}
@@ -257,7 +269,7 @@ export default function Hero() {
                 gap: '0.45rem',
                 padding: '0.35rem 0.85rem',
                 borderRadius: '9999px',
-                background: 'rgba(54, 61, 57, 0.88)',
+                background: isDark ? 'rgba(34, 39, 36, 0.88)' : 'rgba(54, 61, 57, 0.88)',
                 backdropFilter: 'blur(8px)',
                 color: '#D8C8B8',
                 fontSize: '0.72rem',
@@ -291,7 +303,7 @@ export default function Hero() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '0.4rem',
-              color: '#4E5651',
+              color: isDark ? '#C0B5AA' : '#4E5651',
               fontSize: '0.75rem',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
@@ -306,7 +318,7 @@ export default function Hero() {
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <ArrowDown size={17} color="#363D39" />
+              <ArrowDown size={17} color={isDark ? '#D8C8B8' : '#363D39'} />
             </motion.div>
           </motion.div>
         </motion.div>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function TeamMessage() {
+  const { isDark } = useTheme();
+
   return (
     <section
       id="team-message"
@@ -10,7 +13,10 @@ export default function TeamMessage() {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(180deg, #D8C8B8 0%, #E3D7CA 50%, #D8C8B8 100%)',
+        background: isDark 
+          ? 'linear-gradient(180deg, #363D39 0%, #2A302D 50%, #363D39 100%)'
+          : 'linear-gradient(180deg, #D8C8B8 0%, #E3D7CA 50%, #D8C8B8 100%)',
+        transition: 'background 0.3s ease',
       }}
     >
       {/* Background Visual Composition */}
@@ -19,7 +25,9 @@ export default function TeamMessage() {
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: `linear-gradient(to bottom, rgba(216,200,184,0.85) 0%, rgba(227,217,206,0.92) 50%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
+          backgroundImage: isDark
+            ? `linear-gradient(to bottom, rgba(54,61,57,0.92) 0%, rgba(42,48,45,0.96) 50%, #363D39 100%), url('/images/team-cover.jpg')`
+            : `linear-gradient(to bottom, rgba(216,200,184,0.85) 0%, rgba(227,217,206,0.92) 50%, #D8C8B8 100%), url('/images/team-cover.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 45%',
           filter: 'contrast(1.05)',
@@ -32,7 +40,9 @@ export default function TeamMessage() {
         style={{
           width: '550px',
           height: '550px',
-          background: 'radial-gradient(circle, rgba(54,61,57,0.1) 0%, transparent 70%)',
+          background: isDark 
+            ? 'radial-gradient(circle, rgba(216,200,184,0.12) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(54,61,57,0.1) 0%, transparent 70%)',
           top: '20%',
           left: '50%',
           transform: 'translateX(-50%)',
@@ -65,7 +75,7 @@ export default function TeamMessage() {
               fontSize: 'clamp(1.1rem, 3.2vw, 1.95rem)',
               fontWeight: 500,
               lineHeight: 1.65,
-              color: '#222724',
+              color: isDark ? '#F6F1EC' : '#222724',
               marginBottom: '2rem',
               padding: '0 0.5rem',
             }}
@@ -73,10 +83,10 @@ export default function TeamMessage() {
             <p style={{ marginBottom: '1rem' }}>
               Our journey is about more than reaching a destination.
             </p>
-            <p style={{ color: '#363D39', marginBottom: '1.5rem', fontWeight: 800 }}>
+            <p style={{ color: isDark ? '#D8C8B8' : '#363D39', marginBottom: '1.5rem', fontWeight: 800 }}>
               It is about the people we become along the way.
             </p>
-            <p style={{ color: '#4E5651', fontSize: '0.92em', marginBottom: '1.25rem' }}>
+            <p style={{ color: isDark ? '#C0B5AA' : '#4E5651', fontSize: '0.92em', marginBottom: '1.25rem' }}>
               And whenever doubt appears, we remind ourselves
               <br className="desktop-break" />
               and each other of the words that define us:
@@ -90,6 +100,18 @@ export default function TeamMessage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="prominent-tagline-wrap"
+            style={{
+              display: 'inline-block',
+              margin: '0.5rem 0 2.5rem 0',
+              padding: '1.15rem 3rem',
+              borderRadius: '1.75rem',
+              background: isDark 
+                ? 'linear-gradient(135deg, rgba(216, 200, 184, 0.12) 0%, rgba(216, 200, 184, 0.22) 100%)'
+                : 'linear-gradient(135deg, rgba(54, 61, 57, 0.08) 0%, rgba(54, 61, 57, 0.15) 100%)',
+              border: isDark ? '2px solid rgba(216, 200, 184, 0.45)' : '2px solid rgba(54, 61, 57, 0.35)',
+              boxShadow: isDark ? '0 8px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(216, 200, 184, 0.2)' : '0 8px 30px rgba(54, 61, 57, 0.12)',
+              maxWidth: '90vw',
+            }}
           >
             <div
               style={{
@@ -98,9 +120,9 @@ export default function TeamMessage() {
                 fontWeight: 900,
                 letterSpacing: '0.12em',
                 lineHeight: 1.1,
-                color: '#363D39',
+                color: isDark ? '#F6F1EC' : '#363D39',
                 textTransform: 'uppercase',
-                textShadow: '0 0 25px rgba(54, 61, 57, 0.15)',
+                textShadow: isDark ? '0 0 25px rgba(216, 200, 184, 0.4)' : '0 0 25px rgba(54, 61, 57, 0.15)',
               }}
             >
               "YOU CAN DO IT."
@@ -113,14 +135,14 @@ export default function TeamMessage() {
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.2rem, 3.5vw, 1.85rem)',
               fontWeight: 800,
-              color: '#222724',
+              color: isDark ? '#F6F1EC' : '#222724',
               lineHeight: 1.4,
               marginBottom: '1rem',
               padding: '0 0.5rem',
             }}
           >
             We are <span className="gradient-text-sage">DEVI FARLO</span>.
-            <div style={{ color: '#4E5651', fontWeight: 600, fontSize: '0.82em', marginTop: '0.35rem' }}>
+            <div style={{ color: isDark ? '#C0B5AA' : '#4E5651', fontWeight: 600, fontSize: '0.82em', marginTop: '0.35rem' }}>
               And this is only the beginning of our story.
             </div>
           </div>
