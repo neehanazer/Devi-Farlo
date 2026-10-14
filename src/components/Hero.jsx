@@ -177,7 +177,7 @@ export default function Hero() {
               gap: '0.85rem',
               justifyContent: 'center',
               alignItems: 'center',
-              marginBottom: '3rem',
+              marginBottom: '2.5rem',
             }}
           >
             <button
@@ -229,6 +229,58 @@ export default function Hero() {
               <CreditCard size={18} />
               <span>Digital ID Passes</span>
             </button>
+          </motion.div>
+
+          {/* Featured Official Cover Photo Frame - All 7 faces prominently visible */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              position: 'relative',
+              maxWidth: '840px',
+              margin: '0 auto 2.5rem auto',
+              borderRadius: '1.5rem',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px -10px rgba(54, 61, 57, 0.25), 0 0 35px rgba(54, 61, 57, 0.1)',
+              border: '2px solid rgba(54, 61, 57, 0.22)',
+              backgroundColor: '#C5B5A5',
+            }}
+          >
+            {/* Top Badge */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '0.85rem',
+                left: '0.85rem',
+                zIndex: 2,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                padding: '0.35rem 0.85rem',
+                borderRadius: '9999px',
+                background: 'rgba(54, 61, 57, 0.88)',
+                backdropFilter: 'blur(8px)',
+                color: '#D8C8B8',
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+              }}
+            >
+              <Users size={13} color="#D8C8B8" />
+              <span>OFFICIAL TEAM COVER • 7 MEMBERS</span>
+            </div>
+
+            <img
+              src="/images/team-cover.jpg"
+              alt="DEVI FARLO Official Team Photo with all 7 members"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain',
+              }}
+            />
           </motion.div>
 
           {/* Scroll Down Indicator */}
