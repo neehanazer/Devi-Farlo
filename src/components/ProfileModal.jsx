@@ -200,7 +200,7 @@ export default function ProfileModal({
             {/* Biography & Contribution */}
             <div>
               <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: isDark ? '#D8C8B8' : '#4E5651', marginBottom: '0.4rem', fontWeight: 700 }}>
-                Team Biography
+                About Me
               </h4>
               <p style={{ color: isDark ? '#F6F1EC' : '#222724', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                 {member.bio}
