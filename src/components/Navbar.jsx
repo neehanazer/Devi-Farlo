@@ -77,24 +77,18 @@ export default function Navbar() {
               gap: '0.6rem',
             }}
           >
-            <div
+            <img
+              src="/images/logo.png"
+              alt="DEVI FARLO Logo"
               style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '9px',
-                background: isDark ? '#D8C8B8' : '#363D39',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: isDark ? '#363D39' : '#D8C8B8',
-                boxShadow: isDark ? '0 4px 12px rgba(0, 0, 0, 0.3)' : '0 4px 12px rgba(54, 61, 57, 0.2)',
-                fontWeight: 900,
-                fontSize: '1rem',
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
+                objectFit: 'contain',
                 flexShrink: 0,
+                boxShadow: isDark ? '0 4px 12px rgba(0, 0, 0, 0.3)' : '0 4px 12px rgba(54, 61, 57, 0.15)',
               }}
-            >
-              DF
-            </div>
+            />
             <div>
               <div style={{ fontWeight: 800, fontSize: '1.15rem', letterSpacing: '0.04em', color: isDark ? '#F6F1EC' : '#222724', lineHeight: 1.1 }}>
                 DEVI FARLO
@@ -261,22 +255,17 @@ export default function Navbar() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <div
+                  <img
+                    src="/images/logo.png"
+                    alt="DEVI FARLO Logo"
                     style={{
-                      width: '32px',
-                      height: '32px',
+                      width: '34px',
+                      height: '34px',
                       borderRadius: '8px',
-                      background: isDark ? '#D8C8B8' : '#363D39',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: isDark ? '#363D39' : '#D8C8B8',
-                      fontWeight: 900,
-                      fontSize: '0.9rem',
+                      objectFit: 'contain',
+                      flexShrink: 0,
                     }}
-                  >
-                    DF
-                  </div>
+                  />
                   <div>
                     <div style={{ fontWeight: 800, color: isDark ? '#F6F1EC' : '#222724', fontSize: '1rem' }}>DEVI FARLO</div>
                     <div style={{ fontSize: '0.65rem', color: isDark ? '#D8C8B8' : '#363D39', fontWeight: 600 }}>"You have to do it."</div>

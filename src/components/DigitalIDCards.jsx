@@ -132,22 +132,17 @@ export default function DigitalIDCards() {
                 {/* Card Top Row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div
+                    <img
+                      src="/images/logo.png"
+                      alt="DEVI FARLO"
                       style={{
                         width: '32px',
                         height: '32px',
                         borderRadius: '8px',
-                        background: '#D8C8B8',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#363D39',
-                        fontWeight: 900,
-                        fontSize: '0.9rem',
+                        objectFit: 'contain',
+                        flexShrink: 0,
                       }}
-                    >
-                      DF
-                    </div>
+                    />
                     <div>
                       <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#F6F1EC', letterSpacing: '0.05em' }}>
                         DEVI FARLO

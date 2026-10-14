@@ -40,6 +40,20 @@ export default function Footer() {
             margin: '0 auto',
           }}
         >
+          {/* Brand Logo */}
+          <img
+            src="/images/logo.png"
+            alt="DEVI FARLO Logo"
+            style={{
+              width: '54px',
+              height: '54px',
+              borderRadius: '14px',
+              objectFit: 'contain',
+              marginBottom: '1rem',
+              boxShadow: isDark ? '0 6px 20px rgba(0, 0, 0, 0.4)' : '0 6px 20px rgba(54, 61, 57, 0.15)',
+            }}
+          />
+
           {/* Brand Name */}
           <div
             style={{
