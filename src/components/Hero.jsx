@@ -16,65 +16,28 @@ export default function Hero() {
       id="hero"
       style={{
         position: 'relative',
-        minHeight: '100vh',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        paddingTop: '6rem',
-        paddingBottom: '2.5rem',
+        paddingTop: '5rem',
+        paddingBottom: '3.5rem',
         overflow: 'hidden',
+        minHeight: '100vh',
       }}
     >
-      {/* 1. FULL HERO BACKGROUND COVER PHOTO */}
+      {/* Background Ambient Composition with Theme Gradients */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          backgroundImage: "url('/images/hero-cover.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 22%',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-
-      {/* 2. CINEMATIC GRADIENT OVERLAY - Perfectly balanced so every face in the middle is 100% visible and bright */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 1,
           background: isDark
-            ? 'linear-gradient(180deg, rgba(20, 24, 22, 0.72) 0%, rgba(20, 24, 22, 0.12) 32%, rgba(20, 24, 22, 0.18) 58%, rgba(20, 24, 22, 0.92) 88%, #2B312E 100%)'
-            : 'linear-gradient(180deg, rgba(34, 39, 36, 0.72) 0%, rgba(34, 39, 36, 0.12) 32%, rgba(34, 39, 36, 0.18) 58%, rgba(34, 39, 36, 0.92) 88%, #D8C8B8 100%)',
-          pointerEvents: 'none',
+            ? 'radial-gradient(ellipse at 50% 10%, #363D39 0%, #282E2B 60%, #1E2320 100%)'
+            : 'radial-gradient(ellipse at 50% 10%, #EAE0D5 0%, #D8C8B8 60%, #CBBAB0 100%)',
+          transition: 'all 0.3s ease',
         }}
       />
 
-      {/* Atmospheric ambient glows */}
-      <div
-        className="ambient-glow"
-        style={{
-          width: '450px',
-          height: '450px',
-          background: isDark
-            ? 'radial-gradient(circle, rgba(216,200,184,0.12) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)',
-          top: '10%',
-          left: '5%',
-          zIndex: 2,
-        }}
-      />
-
-      {/* 3. TOP SECTION: Elegant Badge (Anchored above faces so heads are never blocked) */}
-      <div className="container-custom" style={{ position: 'relative', zIndex: 3, textAlign: 'center' }}>
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
-        >
+      <div className="container-custom" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
+        {/* TOP SHOWCASE BADGE */}
+        <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           <div
             style={{
               display: 'inline-flex',
@@ -82,18 +45,16 @@ export default function Hero() {
               gap: '0.5rem',
               padding: '0.4rem 1.15rem',
               borderRadius: '9999px',
-              background: 'rgba(20, 24, 22, 0.65)',
-              border: '1px solid rgba(216, 200, 184, 0.35)',
-              backdropFilter: 'blur(12px)',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)',
-              color: '#F6F1EC',
+              background: isDark ? 'rgba(216, 200, 184, 0.12)' : 'rgba(54, 61, 57, 0.08)',
+              border: isDark ? '1px solid rgba(216, 200, 184, 0.3)' : '1px solid rgba(54, 61, 57, 0.2)',
+              color: isDark ? '#D8C8B8' : '#363D39',
               fontSize: '0.78rem',
               fontWeight: 800,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
             }}
           >
-            <Sparkles size={14} color="#D8C8B8" />
+            <Sparkles size={14} />
             <span>THE OFFICIAL TEAM SHOWCASE</span>
             <span
               style={{
@@ -107,115 +68,166 @@ export default function Hero() {
               }}
             />
           </div>
-        </motion.div>
-      </div>
+        </div>
 
-      {/* 4. MIDDLE SPACER: Kept completely open so all 7 members' faces are 100% visible and unblocked */}
-      <div style={{ flex: 1, minHeight: '160px', position: 'relative', zIndex: 2 }} />
-
-      {/* 5. BOTTOM SECTION: Team Identity, Tagline, & CTAs (Anchored over lower frame) */}
-      <div className="container-custom" style={{ position: 'relative', zIndex: 3, width: '100%', textAlign: 'center' }}>
+        {/* 1. THE OFFICIAL COVER PHOTO - 100% UNTOUCHED, UNCROPPED & FULLY VISIBLE */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            maxWidth: '900px',
-            margin: '0 auto',
-            padding: '1.75rem 1.5rem',
+            position: 'relative',
+            width: '100%',
+            maxWidth: '1120px',
+            margin: '0 auto 2rem auto',
             borderRadius: '24px',
-            background: isDark ? 'rgba(34, 39, 36, 0.75)' : 'rgba(24, 28, 26, 0.75)',
-            border: '1px solid rgba(216, 200, 184, 0.25)',
-            backdropFilter: 'blur(16px)',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.55)',
+            overflow: 'hidden',
+            boxShadow: isDark
+              ? '0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(216, 200, 184, 0.22)'
+              : '0 25px 60px -15px rgba(54, 61, 57, 0.22), 0 0 0 1px rgba(54, 61, 57, 0.18)',
+            background: isDark ? '#1F2421' : '#DDD2C5',
           }}
         >
-          {/* Logo & Headline Row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.85rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-            <img
-              src="/images/logo.png"
-              alt="DEVI FARLO"
-              style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: '12px',
-                objectFit: 'contain',
-                border: '1.5px solid rgba(216, 200, 184, 0.4)',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
-              }}
-            />
-            <h1
-              style={{
-                fontSize: 'clamp(2.2rem, 6vw, 3.8rem)',
-                lineHeight: 1.1,
-                fontWeight: 900,
-                letterSpacing: '-0.02em',
-                color: '#FFFFFF',
-                margin: 0,
-              }}
-            >
-              We are <span style={{ color: '#D8C8B8' }}>DEVI FARLO</span>
-            </h1>
-          </div>
+          {/* Zero overlays, zero cropping - every face is 100% sharp and visible */}
+          <img
+            src="/images/hero-cover.jpg"
+            alt="DEVI FARLO Official Team Cover"
+            style={{
+              width: '100%',
+              height: 'auto',
+              maxHeight: 'none',
+              objectFit: 'contain',
+              display: 'block',
+              margin: '0 auto',
+            }}
+          />
+        </motion.div>
 
-          {/* Official Tagline Badge */}
-          <div style={{ margin: '0.4rem 0 0.85rem 0' }}>
+        {/* 2. TEAM IDENTITY & DETAILS - Cleanly placed BELOW the cover photo so NO faces are ever covered */}
+        <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto' }}>
+          {/* Official Logo */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            style={{ display: 'inline-block', marginBottom: '0.85rem' }}
+          >
             <div
               style={{
-                display: 'inline-block',
-                padding: '0.45rem 1.4rem',
-                borderRadius: '9999px',
-                background: 'rgba(216, 200, 184, 0.16)',
-                border: '1px solid rgba(216, 200, 184, 0.4)',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.25)',
+                width: '76px',
+                height: '76px',
+                borderRadius: '20px',
+                padding: '5px',
+                background: isDark ? '#2B312E' : '#EAE1D7',
+                border: isDark ? '2.5px solid #D8C8B8' : '2.5px solid #363D39',
+                boxShadow: isDark ? '0 10px 25px rgba(0, 0, 0, 0.45)' : '0 10px 25px rgba(54, 61, 57, 0.18)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto',
               }}
             >
-              <span
+              <img
+                src="/images/logo.png"
+                alt="DEVI FARLO Logo"
                 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(0.95rem, 3vw, 1.35rem)',
-                  fontWeight: 900,
-                  letterSpacing: '0.14em',
-                  color: '#D8C8B8',
-                  textTransform: 'uppercase',
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '15px',
+                  objectFit: 'contain',
                 }}
-              >
-                "YOU HAVE TO DO IT."
-              </span>
+              />
             </div>
-          </div>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            style={{
+              fontSize: 'clamp(2.4rem, 7vw, 4.4rem)',
+              lineHeight: 1.1,
+              fontWeight: 900,
+              letterSpacing: '-0.02em',
+              marginBottom: '0.75rem',
+            }}
+          >
+            We are <span className="gradient-text-sage">DEVI FARLO</span>
+          </motion.h1>
+
+          {/* Official Tagline Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            style={{
+              display: 'inline-block',
+              margin: '0.2rem 0 1.2rem 0',
+              padding: '0.55rem 1.6rem',
+              borderRadius: '9999px',
+              background: isDark ? 'rgba(216, 200, 184, 0.15)' : 'rgba(54, 61, 57, 0.08)',
+              border: isDark ? '1.5px solid rgba(216, 200, 184, 0.35)' : '1.5px solid rgba(54, 61, 57, 0.25)',
+              boxShadow: isDark ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(54, 61, 57, 0.08)',
+              maxWidth: '92vw',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1rem, 3.2vw, 1.45rem)',
+                fontWeight: 900,
+                letterSpacing: '0.14em',
+                color: isDark ? '#D8C8B8' : '#363D39',
+                textTransform: 'uppercase',
+              }}
+            >
+              "YOU HAVE TO DO IT."
+            </span>
+          </motion.div>
 
           {/* Core Slogan */}
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.6 }}
             style={{
-              fontSize: 'clamp(1rem, 2.6vw, 1.25rem)',
+              fontSize: 'clamp(1.05rem, 3vw, 1.4rem)',
               fontWeight: 700,
-              color: '#F6F1EC',
+              color: isDark ? '#F6F1EC' : '#222724',
               lineHeight: 1.4,
-              marginBottom: '0.6rem',
+              marginBottom: '0.85rem',
               letterSpacing: '-0.01em',
+              padding: '0 0.5rem',
             }}
           >
             "Different individuals. One team. Endless possibilities."
-          </p>
+          </motion.p>
 
-          {/* Short Narrative */}
-          <p
+          {/* Narrative */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
             style={{
-              fontSize: 'clamp(0.88rem, 2vw, 0.98rem)',
-              color: '#C0B5AA',
-              lineHeight: 1.6,
-              maxWidth: '680px',
-              margin: '0 auto 1.5rem auto',
+              fontSize: 'clamp(0.92rem, 2.2vw, 1.05rem)',
+              color: isDark ? '#C0B5AA' : '#4E5651',
+              lineHeight: 1.65,
+              maxWidth: '720px',
+              margin: '0 auto 2rem auto',
+              padding: '0 0.5rem',
               fontWeight: 500,
             }}
           >
             Eight visionary minds converging from different domains — unified by relentless curiosity,
             unshakable trust, and the audacity to redefine what collective human potential can achieve.
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
             className="hero-btn-group"
             style={{
               display: 'flex',
@@ -223,27 +235,27 @@ export default function Hero() {
               gap: '0.85rem',
               justifyContent: 'center',
               alignItems: 'center',
-              marginBottom: '1rem',
+              marginBottom: '2rem',
             }}
           >
             <button
               onClick={() => scrollTo('#team')}
               style={{
-                backgroundColor: '#D8C8B8',
-                color: '#363D39',
-                padding: '0.8rem 1.75rem',
+                backgroundColor: isDark ? '#D8C8B8' : '#363D39',
+                color: isDark ? '#363D39' : '#D8C8B8',
+                padding: '0.85rem 1.8rem',
                 borderRadius: '9999px',
                 fontSize: '0.95rem',
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)',
+                boxShadow: isDark ? '0 8px 25px rgba(0, 0, 0, 0.4)' : '0 8px 25px rgba(54, 61, 57, 0.25)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '0.5rem',
                 transition: 'all 0.25s ease',
-                minHeight: '46px',
+                minHeight: '48px',
               }}
               className="hero-btn"
             >
@@ -254,13 +266,13 @@ export default function Hero() {
             <button
               onClick={() => scrollTo('#team-message')}
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: '#F6F1EC',
-                padding: '0.8rem 1.65rem',
+                backgroundColor: isDark ? 'rgba(216, 200, 184, 0.1)' : 'rgba(54, 61, 57, 0.08)',
+                color: isDark ? '#F6F1EC' : '#222724',
+                padding: '0.85rem 1.7rem',
                 borderRadius: '9999px',
                 fontSize: '0.95rem',
                 fontWeight: 600,
-                border: '1px solid rgba(255, 255, 255, 0.25)',
+                border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.25)',
                 backdropFilter: 'blur(10px)',
                 cursor: 'pointer',
                 display: 'inline-flex',
@@ -268,41 +280,41 @@ export default function Hero() {
                 justifyContent: 'center',
                 gap: '0.5rem',
                 transition: 'all 0.25s ease',
-                minHeight: '46px',
+                minHeight: '48px',
               }}
               className="hero-btn"
             >
               <Heart size={18} />
               <span>Our Team Anthem</span>
             </button>
-          </div>
+          </motion.div>
 
           {/* Scroll Down Indicator */}
           <div
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '0.25rem',
-              color: '#D8C8B8',
-              fontSize: '0.72rem',
+              gap: '0.4rem',
+              color: isDark ? '#C0B5AA' : '#4E5651',
+              fontSize: '0.75rem',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               cursor: 'pointer',
-              fontWeight: 700,
-              paddingTop: '0.35rem',
+              padding: '0.5rem',
+              fontWeight: 600,
             }}
             onClick={() => scrollTo('#stats')}
           >
             <span>Scroll to Discover</span>
             <motion.div
-              animate={{ y: [0, 5, 0] }}
+              animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <ArrowDown size={15} color="#D8C8B8" />
+              <ArrowDown size={17} color={isDark ? '#D8C8B8' : '#363D39'} />
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <style>{`
