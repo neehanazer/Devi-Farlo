@@ -118,16 +118,16 @@ export const teamMembers = [
   {
     id: "DF-08",
     name: "Neeha Nazer",
-    role: "Learning & Knowledge Lead",
-    title: "Engineering Mentor & Knowledge Lead",
+    role: "Mathematics & Learning Lead",
+    title: "Mathematics Educator & Knowledge Mentor",
     image: "/images/neeha-nazer.jpg",
-    strength: "Technical Teaching, Coding & Adaptive Teamwork",
-    superpower: "The Knowledge Mentor",
-    motto: "True mastery is found in empowering others; when we teach, code, and adapt together, we all rise.",
-    bio: "The intellectual catalyst and beloved mentor of DEVI FARLO. Neeha pairs practical coding expertise with a natural talent for teaching and articulate communication. Deeply adaptable and dedicated to teamwork, she ensures every team member understands complex concepts and grows continually.",
-    contribution: "Spearheaded interactive learning workshops and code walkthroughs, demystifying technical workflows and fostering an adaptable, high-performing team environment.",
-    skills: ["Technical Teaching & Mentoring", "Clear Communication", "Coding & Architecture", "Agile Adaptability", "Teamwork Collaboration"],
-    stats: { teaching: 99, communication: 98, teamwork: 98 },
+    strength: "Mathematics Teaching, Coding & Adaptive Teamwork",
+    superpower: "The Math & Logic Mentor",
+    motto: "Mathematics is the language of clarity; when we teach with passion and build together, we all rise.",
+    bio: "A passionate educator with a deep love for teaching mathematics, articulate communication, and solid coding knowledge. Neeha is deeply adaptable and dedicated to teamwork, bringing mathematical clarity, supportive mentorship, and collaborative problem-solving to DEVI FARLO.",
+    contribution: "Infused mathematical clarity, coding support, and peer mentorship into team initiatives, fostering an adaptable, high-performing environment of mutual growth.",
+    skills: ["Mathematics Teaching", "Passionate Educator", "Clear Communication", "Coding Knowledge", "Agile Adaptability", "Teamwork Skills"],
+    stats: { mathTeaching: 99, communication: 98, teamwork: 98 },
     color: "#D8C8B8"
   }
 ];
