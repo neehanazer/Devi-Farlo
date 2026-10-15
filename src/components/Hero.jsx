@@ -18,10 +18,10 @@ export default function Hero() {
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'center',
-        paddingTop: '6rem',
-        paddingBottom: '4rem',
+        paddingTop: 'clamp(6rem, 16vh, 12rem)',
+        paddingBottom: '3.5rem',
         overflow: 'hidden',
       }}
     >
@@ -41,9 +41,9 @@ export default function Hero() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center 14%',
-            filter: isDark ? 'brightness(0.68) contrast(1.1)' : 'brightness(0.62) contrast(1.08)',
-            transform: 'scale(1.03)',
+            objectPosition: 'center top',
+            filter: isDark ? 'brightness(0.82) contrast(1.08)' : 'brightness(0.78) contrast(1.05)',
+            transform: 'scale(1.02)',
             transition: 'all 0.4s ease',
           }}
         />
@@ -54,8 +54,8 @@ export default function Hero() {
             position: 'absolute',
             inset: 0,
             background: isDark
-              ? 'linear-gradient(180deg, rgba(18, 22, 20, 0.78) 0%, rgba(18, 22, 20, 0.45) 28%, rgba(18, 22, 20, 0.7) 65%, #222724 100%)'
-              : 'linear-gradient(180deg, rgba(28, 33, 30, 0.8) 0%, rgba(28, 33, 30, 0.48) 28%, rgba(28, 33, 30, 0.74) 65%, #2B312E 100%)',
+              ? 'linear-gradient(180deg, rgba(18, 22, 20, 0.4) 0%, rgba(18, 22, 20, 0.15) 25%, rgba(18, 22, 20, 0.65) 55%, #222724 100%)'
+              : 'linear-gradient(180deg, rgba(28, 33, 30, 0.42) 0%, rgba(28, 33, 30, 0.18) 25%, rgba(28, 33, 30, 0.7) 55%, #2B312E 100%)',
             pointerEvents: 'none',
           }}
         />
@@ -65,7 +65,7 @@ export default function Hero() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'radial-gradient(circle at 50% 38%, transparent 22%, rgba(14, 18, 16, 0.78) 100%)',
+            background: 'radial-gradient(circle at 50% 30%, transparent 35%, rgba(14, 18, 16, 0.75) 100%)',
             pointerEvents: 'none',
           }}
         />
