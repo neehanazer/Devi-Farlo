@@ -16,27 +16,62 @@ export default function Hero() {
       id="hero"
       style={{
         position: 'relative',
-        paddingTop: '5rem',
-        paddingBottom: '3.5rem',
-        overflow: 'hidden',
         minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: '6rem',
+        paddingBottom: '4rem',
+        overflow: 'hidden',
       }}
     >
-      {/* Background Ambient Composition with Theme Gradients */}
+      {/* Background Cover Photo with Cinematic Vignette Overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
-          background: isDark
-            ? 'radial-gradient(ellipse at 50% 10%, #363D39 0%, #282E2B 60%, #1E2320 100%)'
-            : 'radial-gradient(ellipse at 50% 10%, #EAE0D5 0%, #D8C8B8 60%, #CBBAB0 100%)',
-          transition: 'all 0.3s ease',
+          overflow: 'hidden',
         }}
-      />
+      >
+        <img
+          src="/images/team-cover.jpg"
+          alt="DEVI FARLO Official Team"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 14%',
+            filter: isDark ? 'brightness(0.68) contrast(1.1)' : 'brightness(0.62) contrast(1.08)',
+            transform: 'scale(1.03)',
+            transition: 'all 0.4s ease',
+          }}
+        />
+
+        {/* Cinematic smooth gradient overlay matching reference image */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: isDark
+              ? 'linear-gradient(180deg, rgba(18, 22, 20, 0.78) 0%, rgba(18, 22, 20, 0.45) 28%, rgba(18, 22, 20, 0.7) 65%, #222724 100%)'
+              : 'linear-gradient(180deg, rgba(28, 33, 30, 0.8) 0%, rgba(28, 33, 30, 0.48) 28%, rgba(28, 33, 30, 0.74) 65%, #2B312E 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Soft radial vignette for theatrical center focus */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(circle at 50% 38%, transparent 22%, rgba(14, 18, 16, 0.78) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+      </div>
 
       <div className="container-custom" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
-
         {/* TEAM IDENTITY & DETAILS */}
         <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto' }}>
           {/* Official Logo */}
@@ -48,13 +83,14 @@ export default function Hero() {
           >
             <div
               style={{
-                width: '76px',
-                height: '76px',
+                width: '74px',
+                height: '74px',
                 borderRadius: '20px',
                 padding: '5px',
-                background: isDark ? '#2B312E' : '#EAE1D7',
-                border: isDark ? '2.5px solid #D8C8B8' : '2.5px solid #363D39',
-                boxShadow: isDark ? '0 10px 25px rgba(0, 0, 0, 0.45)' : '0 10px 25px rgba(54, 61, 57, 0.18)',
+                background: 'rgba(34, 39, 36, 0.85)',
+                border: '2px solid rgba(216, 200, 184, 0.6)',
+                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.55), 0 0 20px rgba(216, 200, 184, 0.25)',
+                backdropFilter: 'blur(10px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -80,14 +116,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.6 }}
             style={{
-              fontSize: 'clamp(2.4rem, 7vw, 4.4rem)',
+              fontSize: 'clamp(2.5rem, 7.5vw, 4.8rem)',
               lineHeight: 1.1,
               fontWeight: 900,
               letterSpacing: '-0.02em',
+              color: '#FFFFFF',
+              textShadow: '0 4px 25px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.7)',
               marginBottom: '0.75rem',
             }}
           >
-            We are <span className="gradient-text-sage">DEVI FARLO</span>
+            We are <span style={{ color: '#D8C8B8', textShadow: '0 0 25px rgba(216, 200, 184, 0.4)' }}>DEVI FARLO</span>
           </motion.h1>
 
           {/* Official Tagline Badge */}
@@ -98,22 +136,24 @@ export default function Hero() {
             style={{
               display: 'inline-block',
               margin: '0.2rem 0 1.2rem 0',
-              padding: '0.55rem 1.6rem',
+              padding: '0.5rem 1.6rem',
               borderRadius: '9999px',
-              background: isDark ? 'rgba(216, 200, 184, 0.15)' : 'rgba(54, 61, 57, 0.08)',
-              border: isDark ? '1.5px solid rgba(216, 200, 184, 0.35)' : '1.5px solid rgba(54, 61, 57, 0.25)',
-              boxShadow: isDark ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(54, 61, 57, 0.08)',
+              background: 'rgba(22, 26, 24, 0.7)',
+              border: '1.5px solid rgba(216, 200, 184, 0.45)',
+              boxShadow: '0 6px 25px rgba(0, 0, 0, 0.45)',
+              backdropFilter: 'blur(12px)',
               maxWidth: '92vw',
             }}
           >
             <span
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1rem, 3.2vw, 1.45rem)',
+                fontSize: 'clamp(0.95rem, 3.2vw, 1.4rem)',
                 fontWeight: 900,
                 letterSpacing: '0.14em',
-                color: isDark ? '#D8C8B8' : '#363D39',
+                color: '#F6F1EC',
                 textTransform: 'uppercase',
+                textShadow: '0 2px 8px rgba(0, 0, 0, 0.7)',
               }}
             >
               "YOU HAVE TO DO IT."
@@ -126,12 +166,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.6 }}
             style={{
-              fontSize: 'clamp(1.05rem, 3vw, 1.4rem)',
+              fontSize: 'clamp(1.05rem, 2.8vw, 1.38rem)',
               fontWeight: 700,
-              color: isDark ? '#F6F1EC' : '#222724',
+              color: '#FFFFFF',
               lineHeight: 1.4,
               marginBottom: '0.85rem',
               letterSpacing: '-0.01em',
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.85)',
               padding: '0 0.5rem',
             }}
           >
@@ -144,13 +185,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             style={{
-              fontSize: 'clamp(0.92rem, 2.2vw, 1.05rem)',
-              color: isDark ? '#C0B5AA' : '#4E5651',
+              fontSize: 'clamp(0.92rem, 2.2vw, 1.08rem)',
+              color: 'rgba(235, 230, 222, 0.92)',
               lineHeight: 1.65,
               maxWidth: '720px',
               margin: '0 auto 2rem auto',
               padding: '0 0.5rem',
-              fontWeight: 500,
+              fontWeight: 400,
+              textShadow: '0 2px 12px rgba(0, 0, 0, 0.85)',
             }}
           >
             Eight visionary minds converging from different domains — unified by relentless curiosity,
@@ -169,21 +211,21 @@ export default function Hero() {
               gap: '0.85rem',
               justifyContent: 'center',
               alignItems: 'center',
-              marginBottom: '2rem',
+              marginBottom: '2.5rem',
             }}
           >
             <button
               onClick={() => scrollTo('#team')}
               style={{
-                backgroundColor: isDark ? '#D8C8B8' : '#363D39',
-                color: isDark ? '#363D39' : '#D8C8B8',
-                padding: '0.85rem 1.8rem',
+                backgroundColor: '#D8C8B8',
+                color: '#222724',
+                padding: '0.85rem 2rem',
                 borderRadius: '9999px',
-                fontSize: '0.95rem',
-                fontWeight: 700,
+                fontSize: '0.96rem',
+                fontWeight: 800,
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: isDark ? '0 8px 25px rgba(0, 0, 0, 0.4)' : '0 8px 25px rgba(54, 61, 57, 0.25)',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(216, 200, 184, 0.3)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -200,13 +242,13 @@ export default function Hero() {
             <button
               onClick={() => scrollTo('#team-message')}
               style={{
-                backgroundColor: isDark ? 'rgba(216, 200, 184, 0.1)' : 'rgba(54, 61, 57, 0.08)',
-                color: isDark ? '#F6F1EC' : '#222724',
-                padding: '0.85rem 1.7rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                color: '#FFFFFF',
+                padding: '0.85rem 1.85rem',
                 borderRadius: '9999px',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                border: isDark ? '1px solid rgba(216, 200, 184, 0.25)' : '1px solid rgba(54, 61, 57, 0.25)',
+                fontSize: '0.96rem',
+                fontWeight: 700,
+                border: '1.5px solid rgba(255, 255, 255, 0.35)',
                 backdropFilter: 'blur(10px)',
                 cursor: 'pointer',
                 display: 'inline-flex',
@@ -230,13 +272,14 @@ export default function Hero() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '0.4rem',
-              color: isDark ? '#C0B5AA' : '#4E5651',
+              color: 'rgba(246, 241, 236, 0.8)',
               fontSize: '0.75rem',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               cursor: 'pointer',
               padding: '0.5rem',
-              fontWeight: 600,
+              fontWeight: 700,
+              textShadow: '0 2px 8px rgba(0, 0, 0, 0.8)',
             }}
             onClick={() => scrollTo('#stats')}
           >
@@ -245,7 +288,7 @@ export default function Hero() {
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <ArrowDown size={17} color={isDark ? '#D8C8B8' : '#363D39'} />
+              <ArrowDown size={17} color="#D8C8B8" />
             </motion.div>
           </div>
         </div>
