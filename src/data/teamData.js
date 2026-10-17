@@ -15,7 +15,7 @@ export const teamMembers = [
     name: "Hiran Joy",
     role: "Captain",
     title: "Team Captain & Strategic Lead",
-    image: "/images/hiran-joy.jpg",
+    image: "./images/hiran-joy.jpg",
     strength: "Confident Communication & Bold Leadership",
     superpower: "The Confident Communicator",
     motto: "When you believe with confidence and communicate with clarity, no challenge is insurmountable.",
@@ -30,7 +30,7 @@ export const teamMembers = [
     name: "Angel Wilson",
     role: "Vice-Captain",
     title: "Vice-Captain & Motivational Catalyst",
-    image: "/images/angel-wilson.jpg",
+    image: "./images/angel-wilson.jpg",
     strength: "Team Motivation, Adaptability & Dance Artistry",
     superpower: "The Rhythm Catalyst",
     motto: "Action with rhythm and passion turns every challenge into an inspiring step forward.",
@@ -45,7 +45,7 @@ export const teamMembers = [
     name: "Arya A",
     role: "Technical Lead",
     title: "Chief Systems Architect & Technical Lead",
-    image: "/images/arya-a.jpg",
+    image: "./images/arya-a.jpg",
     strength: "Technical Mastery (Python, Java, C++) & Team Motivation",
     superpower: "The Polyglot Architect",
     motto: "Code with precision in every language, adapt with grace, and motivate everyone around you.",
@@ -60,7 +60,7 @@ export const teamMembers = [
     name: "Ananya T",
     role: "Creative Director",
     title: "Head of Experience & Creative Design",
-    image: "/images/ananya-t.jpg",
+    image: "./images/ananya-t.jpg",
     strength: "Creative UI/UX, Rapid Learning & Expressive Arts",
     superpower: "The Creative Maestro",
     motto: "Design is choreography for the eyes — expressive, adaptable, and constantly learning new rhythms.",
@@ -75,7 +75,7 @@ export const teamMembers = [
     name: "Alant Saji",
     role: "Risk Management Lead",
     title: "Risk Strategist & Operations Specialist",
-    image: "/images/alant-saji.jpg",
+    image: "./images/alant-saji.jpg",
     strength: "Risk Management & Fearless Fortitude",
     superpower: "The Risk Strategist",
     motto: "Anticipate the risks, communicate with clarity, and conquer every challenge with a positive mindset.",
@@ -90,7 +90,7 @@ export const teamMembers = [
     name: "Stephano Benny",
     role: "Product Strategist",
     title: "Product Strategist & Culture Champion",
-    image: "/images/stephano-benny.jpg",
+    image: "./images/stephano-benny.jpg",
     strength: "Radiant Positivity & Collaborative Leadership",
     superpower: "The Beacon of Positivity",
     motto: "A positive attitude and open communication turn every collaboration into pure gold.",
@@ -105,7 +105,7 @@ export const teamMembers = [
     name: "Gautham M",
     role: "Full-Stack Engineer",
     title: "Systems Engineer & Critical Reasoning Specialist",
-    image: "/images/gautham-m.jpg",
+    image: "./images/gautham-m.jpg",
     strength: "High Technical Acumen & Critical Reasoning",
     superpower: "The Logic Virtuoso",
     motto: "Deep technical insight and critical reasoning reveal the simplest path through complexity.",
@@ -120,7 +120,7 @@ export const teamMembers = [
     name: "Neeha Nazer",
     role: "Mathematics & Learning Lead",
     title: "Mathematics Educator & Knowledge Mentor",
-    image: "/images/neeha-nazer.jpg",
+    image: "./images/neeha-nazer.jpg",
     strength: "Mathematics Teaching, Coding & Adaptive Teamwork",
     superpower: "The Math & Logic Mentor",
     motto: "Mathematics is the language of clarity; when we teach with passion and build together, we all rise.",
@@ -234,24 +234,121 @@ export const teamStrengths = [
 
 export const teamGalleryImages = [
   {
-    url: "/images/team-cover.jpg",
-    title: "The Official DEVI FARLO Team",
-    subtitle: "United together — Hiran Joy, Angel Wilson, Arya A, Ananya T, Alant Saji, Stephano Benny, Gautham M, and Neeha Nazer."
+    id: "gal-00",
+    url: "./images/gallery/photo_2026-10-17_00-13-41.jpg",
+    title: "The United DEVI FARLO Team",
+    subtitle: "Complete team assembly together with our mentors on stage.",
+    category: "Team Moments",
+    tag: "Full Team",
+    highlight: "Complete Assembly"
   },
   {
-    url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
-    title: "Collaborative Synergy",
-    subtitle: "Whiteboarding algorithms and architectural blueprints."
+    id: "gal-01",
+    url: "./images/gallery/photo_2026-10-16_21-56-31.jpg",
+    title: "MPOWER Live Stage & Leaderboard",
+    subtitle: "Captain Hiran Joy presenting DEVI FARLO on the grand stage with live scoreboard updates at MPOWER.",
+    category: "Competition",
+    tag: "Live Arena",
+    highlight: "Top 3 Ranking Milestone"
   },
   {
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
-    title: "The Workshop of Breakthroughs",
-    subtitle: "Turning complex theory into working, responsive realities."
+    id: "gal-02",
+    url: "./images/gallery/photo_2026-10-16_21-56-33.jpg",
+    title: "Stage Address & Jury Presentation",
+    subtitle: "Articulating the DEVI FARLO vision with poise and command under the auditorium spotlight.",
+    category: "Competition",
+    tag: "Keynote",
+    highlight: "Stage Command"
   },
   {
-    url: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
-    title: "Milestone Celebration",
-    subtitle: "Rejoicing in shared triumphs and the resilience of our bond."
+    id: "gal-03",
+    url: "./images/gallery/photo_2026-10-16_22-10-21.jpg",
+    title: "Captain Spotlight: Hiran Joy",
+    subtitle: "Articulating leadership values, clear communication, and our relentless drive to motivate the collective.",
+    category: "Leadership",
+    tag: "Captain",
+    highlight: "Visionary Leadership"
+  },
+  {
+    id: "gal-04",
+    url: "./images/gallery/photo_2026-10-16_22-10-15.jpg",
+    title: "Vice-Captain Spotlight: Angel Wilson",
+    subtitle: "Showcasing infectious positivity, adaptable teamwork, and the rhythm that inspires our entire team.",
+    category: "Leadership",
+    tag: "Vice-Captain",
+    highlight: "Team Motivation"
+  },
+  {
+    id: "gal-05",
+    url: "./images/gallery/photo_2026-10-16_22-08-53.jpg",
+    title: "The Creed: You Have To Do It",
+    subtitle: "Explaining the Italian origin of 'DEVI FARLO' — seizing the initiative with courage instead of waiting.",
+    category: "Philosophy",
+    tag: "Team Creed",
+    highlight: "DEVI FARLO Origins"
+  },
+  {
+    id: "gal-06",
+    url: "./images/gallery/photo_2026-10-16_22-09-05.jpg",
+    title: "Dare to Take the First Step",
+    subtitle: "True success begins when we dare to step forward together into unexplored challenges.",
+    category: "Philosophy",
+    tag: "Vision",
+    highlight: "Courage & Action"
+  },
+  {
+    id: "gal-07",
+    url: "./images/gallery/photo_2026-10-16_22-09-11.jpg",
+    title: "Trust in Our Own Wings",
+    subtitle: "The bird on the branch never fears the limb breaking because its trust is in its wings. Fly or conquer.",
+    category: "Philosophy",
+    tag: "Inspiration",
+    highlight: "Unshakable Faith"
+  },
+  {
+    id: "gal-08",
+    url: "./images/gallery/photo_2026-10-16_22-09-25.jpg",
+    title: "Conquering Challenges Together",
+    subtitle: "Turning collective dreams into disciplined action — moving mountains as an undivided unit.",
+    category: "Leadership",
+    tag: "Execution",
+    highlight: "Bold Action"
+  },
+  {
+    id: "gal-09",
+    url: "./images/gallery/photo_2026-10-16_22-08-38.jpg",
+    title: "Eight Paths, One Mission",
+    subtitle: "Introducing our eight unique minds converging into one unstoppable creative force.",
+    category: "Presentations",
+    tag: "Team Reveal",
+    highlight: "8 Unique Personalities"
+  },
+  {
+    id: "gal-10",
+    url: "./images/gallery/photo_2026-10-16_22-10-03.jpg",
+    title: "How We Are Different",
+    subtitle: "Highlighting our multifaceted team credentials: NSS, Rajya Puraskar, State Honors, and Abacus mastery.",
+    category: "Presentations",
+    tag: "Credentials",
+    highlight: "Multifaceted Talents"
+  },
+  {
+    id: "gal-11",
+    url: "./images/gallery/photo_2026-10-16_22-08-44.jpg",
+    title: "United Under Focus on Excellence",
+    subtitle: "Standing united on stage under the Institute's creed, embodying collective pride and elegance.",
+    category: "Team Moments",
+    tag: "On Stage",
+    highlight: "Excellence in Action"
+  },
+  {
+    id: "gal-12",
+    url: "./images/gallery/photo_2026-10-16_22-09-17.jpg",
+    title: "Dynamic Stage Synergy",
+    subtitle: "Engaging discussions and collaborative stage dynamics during the critical project Q&A defense.",
+    category: "Team Moments",
+    tag: "Stage Synergy",
+    highlight: "Real-time Collaboration"
   }
 ];
 

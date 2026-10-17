@@ -133,7 +133,7 @@ export default function DigitalIDCards() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <img
-                      src="/images/logo.png"
+                      src="./images/logo.png"
                       alt="DEVI FARLO"
                       style={{
                         width: '32px',

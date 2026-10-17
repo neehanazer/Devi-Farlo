@@ -49,6 +49,7 @@ export default function Navbar() {
     { name: "Home", href: "#hero" },
     { name: "Stats", href: "#stats" },
     { name: "Meet Our Team", href: "#team" },
+    { name: "Gallery", href: "#gallery" },
     { name: "Team Anthem", href: "#team-message" },
   ];
 
@@ -95,7 +96,7 @@ export default function Navbar() {
             }}
           >
             <img
-              src="/images/logo.png"
+              src="./images/logo.png"
               alt="DEVI FARLO Logo"
               style={{
                 width: '38px',
@@ -300,7 +301,7 @@ export default function Navbar() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                   <img
-                    src="/images/logo.png"
+                    src="./images/logo.png"
                     alt="DEVI FARLO Logo"
                     style={{
                       width: '34px',

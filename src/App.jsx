@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TeamStatistics from './components/TeamStatistics';
 import MeetTeam from './components/MeetTeam';
+import Gallery from './components/Gallery';
 import TeamMessage from './components/TeamMessage';
 import Footer from './components/Footer';
 import ProfileModal from './components/ProfileModal';
@@ -67,6 +68,9 @@ function MainApp() {
 
         {/* Meet Our Team (All 8 Members) */}
         <MeetTeam onSelectMember={setSelectedMember} />
+
+        {/* Authentic Team Gallery & Live Archive */}
+        <Gallery />
 
         {/* 13. Team Message (Emotional Highlight & Core Anthem) */}
         <TeamMessage />

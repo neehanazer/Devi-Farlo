@@ -59,7 +59,7 @@ export default function Footer() {
         >
           {/* Brand Logo */}
           <img
-            src="/images/logo.png"
+            src="./images/logo.png"
             alt="DEVI FARLO Logo"
             style={{
               width: '54px',

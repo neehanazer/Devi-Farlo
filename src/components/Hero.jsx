@@ -35,7 +35,7 @@ export default function Hero() {
         }}
       >
         <img
-          src="/images/team-cover.jpg"
+          src="./images/team-cover.jpg"
           alt="DEVI FARLO Official Team"
           style={{
             width: '100%',
@@ -98,7 +98,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="/images/logo.png"
+                src="./images/logo.png"
                 alt="DEVI FARLO Logo"
                 style={{
                   width: '100%',
